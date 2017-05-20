@@ -71,7 +71,14 @@ push して、[Setting] の [GitHub Pages] が [Your site is published at...]と
 
 ## 記事の投稿
 
-`_post/` ディレクトリに `YYYY-MM-DD-xxxxxxx.md`というファイルを push すれば、記事を投稿したことになる。
+* `_post/` ディレクトリに `YYYY-MM-DD-xxxxxxx.md`というファイルを push すれば、記事を投稿したことになる。
+* 先頭部分は YAML 形式で Front Matter を書く。もともとあったファイルを参照する。
+```
+---
+layout: post
+title: You're up and running!
+---
+```
 
 これが、その記事だ。
 
