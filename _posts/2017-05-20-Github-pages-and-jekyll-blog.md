@@ -1,4 +1,7 @@
-# GitHub で Blog を作る
+---
+layout: post
+title: GitHub で Blog を作る
+---
 
 プログラミング関係のブログを GitHub Pages を使って作成しよう。方法はいくつかある。
 
