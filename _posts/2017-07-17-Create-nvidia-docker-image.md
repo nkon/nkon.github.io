@@ -1,11 +1,14 @@
 ---
 layout: post
-title: GitHub で Blog を作る
+title: nvdia-docker で ディープラーニング用の環境を作る
 category: blog
 tags: docker, ai, ubuntu
 ---
 
 AIでいろいろ遊んで見るために、まずは環境構築する。
+
+変化が早くて、いろいろな情報があっという間に古くなる中で、執筆時点(2017年7月)で、最も使いやすい(作りやすい、維持しやすい、情報を得やすい)環境を目指す。遊ぶ前に環境構築で疲れてしまうわけにはいかない。
+
 
 前提として、手元の環境は次の通り。
 
@@ -60,11 +63,11 @@ Sun Jul 16 22:23:24 2017
 `apt-get install docker.io`で良かったと思う。
 
 ## nvidia-docker のセットアッブ
-本家の解説(https://github.com/NVIDIA/nvidia-docker/wiki/Installation)の通りにやれば、問題なく終了するはずだ。
+本家の解説([https://github.com/NVIDIA/nvidia-docker/wiki/Installation](https://github.com/NVIDIA/nvidia-docker/wiki/Installation))の通りにやれば、問題なく終了するはずだ。
 
 ### 動作確認
 
-まずは、本家のサンブル(https://github.com/NVIDIA/nvidia-docker/blob/master/samples/ubuntu-16.04/nvidia-smi/Dockerfile)を取ってきて実行する。
+まずは、本家のサンブル([https://github.com/NVIDIA/nvidia-docker/blob/master/samples/ubuntu-16.04/nvidia-smi/Dockerfile](https://github.com/NVIDIA/nvidia-docker/blob/master/samples/ubuntu-16.04/nvidia-smi/Dockerfile))を取ってきて実行する。
 
 
 ```
@@ -108,7 +111,7 @@ GPU 0000:01:00.0
 
 ## TensorFlow + Keras の環境を追加する
 
-http://archive.is/RcstB を参照した。
+[http://archive.is/RcstB](http://archive.is/RcstB) を参照した。
 
 Dockerfile を次のように編集する。
 
@@ -146,7 +149,7 @@ CUDAのコンパイルまでは CPU を使っているが、それが終わっ�
 ## chainer の環境を追加する
 
 書籍となっている解説書では chainer を使ったものも多い。
-公式(https://github.com/chainer/chainer/blob/master/docker/python3/Dockerfile)ではうまく動かない。いろいろ試したが、次で動いた。これは、執筆時点での動作実績であり、安心して使える気がしないのは、やはり、バージョンに敏感すぎるだろう。
+公式([https://github.com/chainer/chainer/blob/master/docker/python3/Dockerfile](https://github.com/chainer/chainer/blob/master/docker/python3/Dockerfile))ではうまく動かない。いろいろ試したが、次で動いた。これは、執筆時点での動作実績であり、安心して使える気がしないのは、やはり、バージョンに敏感すぎるだろう。
 
 ```
 FROM nvidia/cuda:8.0-cudnn5-devel
@@ -172,3 +175,4 @@ $ sudo nvidia-docker run -it nvidia/cuda
 # wget https://raw.githubusercontent.com/chainer/chainer/master/examples/mnist/train_mnist.py
 # python3 train_mnist.py  --gpu=0
 ```
+
