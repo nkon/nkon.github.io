@@ -24,7 +24,7 @@ AIでいろいろ遊んで見るために、まずは環境構築する。
 すこしググッてみたところ、簡単な解説は VirtualBox か RasPi 上に Ubuntu + pip + python3 の環境を作っていることが多い。環境構築としては簡単だが、全く遅くて実用的ではないのと、1050とはいえせっかくあるGPUを使わないのはもったいない。
 
 ## GPUを使う
-Deep Lerning で GPU を使う時点で、業界標準としては Ubuntu + nvidia となる。しかし、Cuda ドライバのインストールが、まだ、こなれていなさそうだ。nvidia driver への依存性、Xのドライバとの干渉など。Deep Lerning 専用機ではなく、デスクトップ環境兼用機なので、極力トラブルは起こしたくない。
+Deep Lerning で GPU を使う時点で、業界標準としては Ubuntu + nvidia となる。しかし、Cuda ドライバのインストールが、まだこなれていなさそうだ。nvidia driver への依存性、Xのドライバとの干渉など。Deep Lerning 専用機ではなく、デスクトップ環境兼用機なので、極力トラブルは起こしたくない。
 
 よって Docker 上に環境を構築する。幸い、最近、nvidia-docker が登場し、これからは nvdia-docker が標準的になりそうだ。
 
