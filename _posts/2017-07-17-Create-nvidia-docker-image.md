@@ -144,12 +144,12 @@ $ sudo nvidia-docker run -it nvidia/cuda
 # python3 mnist_cnn.py
 ```
 
-CUDAのコンパイルまでは CPU を使っているが、それが終わったら、CPUの負荷が減り、すごいスピードで学習が進み、ファンの音がCPUの音からGPUの音に変わればうまくいっている。
+CUDAのコンパイルまでは CPU を使っているが、それが終わったらCPUの負荷が減り、すごいスピードで学習が進み、ファンの音がCPUの音からGPUの音に変わればうまくいっている。
 
 ## chainer の環境を追加する
 
 書籍となっている解説書では chainer を使ったものも多い。
-公式([https://github.com/chainer/chainer/blob/master/docker/python3/Dockerfile](https://github.com/chainer/chainer/blob/master/docker/python3/Dockerfile))ではうまく動かない。いろいろ試したが、次で動いた。これは、執筆時点での動作実績であり、安心して使える気がしないのは、やはり、バージョンに敏感すぎるだろう。
+公式([https://github.com/chainer/chainer/blob/master/docker/python3/Dockerfile](https://github.com/chainer/chainer/blob/master/docker/python3/Dockerfile))ではうまく動かない。いろいろ試したが次で動いた。これは執筆時点での動作実績であり、安心して使える気がしないのは、やはりバージョンに敏感すぎるだろう。
 
 ```
 FROM nvidia/cuda:8.0-cudnn5-devel
@@ -171,8 +171,15 @@ RUN pip3 install cupy chainer
 $ sudo nvidia-docker run -it nvidia/cuda
 (コンテナのシェル)
 # apt-get update
-# apt-get install wget
+# apt-get install wget python3-matplotlib
 # wget https://raw.githubusercontent.com/chainer/chainer/master/examples/mnist/train_mnist.py
 # python3 train_mnist.py  --gpu=0
 ```
 
+自分で、コードを書いて遊ぶために、ホストのディレクトリをマウントして起動する。
+
+今更だが、`-i`はインタラクティブシェルを起動、`-t`は端末を接続だ。
+
+```
+$ sudo nvdia-docker run -v [ホストディレクトリの絶対パス]:[コンテナの絶対パス] -it nvidia/cuda
+```
