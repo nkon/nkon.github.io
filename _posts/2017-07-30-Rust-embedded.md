@@ -75,7 +75,7 @@ thumbv7m-none-eabi
 
 最小限のプログラムを次に示す。まずは写経してみて欲しい。
 
-```rust:src/main.rs
+```rust
 // src/main.rs
 #![no_std]
 #![no_main]
@@ -172,7 +172,7 @@ SECTIONS
 ### .cargo/config
 
 リンクの設定をリンカに渡すために`.cargo/config`というファイルを用意し、次を記述する。
-```:.cargo/config
+```
 [target.thumbv7m-none-eabi]
 rustflags = [
     "-C", "link-arg=-Tlayout.ld",
@@ -203,7 +203,7 @@ $ xargo build --target=thumbv7m-none-eabi --verbose
 
 ### src/main.rs
 
-```rust:src/mai.rs
+```rust
 #![no_std] // std を使わない。1.6.0以降だと、これで自動的に libcore が使われる。
 #![no_main] // rust の標準的な main を使わない
 #![feature(lang_items)] // #[lang="..."] を使う宣言。具体的には、下の #[lang="panic_fmt"]
@@ -349,7 +349,7 @@ pub extern fn SystemInit(){
 
 # src/layout.ld
 
-```:src/layout.ld
+```
 /* Entry Point */
 ENTRY(Reset_Handler)
 
@@ -415,7 +415,7 @@ _estack と RAM, FLASH のアドレス、大きさはチップ固有だが、詰
 ### .cargo/config
 
 ちゃんと動かすためには、修正が必要だ。
-```:.cargo/config
+```
 [build]
 target = "thumbv7m-none-eabi"
 
@@ -457,7 +457,7 @@ target = "thumbv7m-none-eabi"
 リンカに渡すオプション。大体 gcc の時と同じ。
 
 ### src/startup_stm32f103xb.s
-```:src/startup_stm32f103xb.s
+```
   .syntax unified
   .cpu cortex-m3
   .fpu softvfp
@@ -734,7 +734,7 @@ g_pfnVectors:
 
 rust のコードだけでなくアセンブラのコードもコンパイルしてリンクしなければならない。cargo にビルド手順を指示するためには、build.rs を書いて、ビルドの手順を指定する。cargo build すると、build.rs がコンパイル＆実行されて、その出力にしたがってビルドが行われる。
 
-```rust:build.rs
+```rust
 use std::process::Command;
 use std::env;
 use std::path::Path;
@@ -809,7 +809,7 @@ ar を実行してライブラリを作成する。
 
 出来上がったファイルは Open-OCDを使ってターゲットに書き込むが、次のようなシェルスクリプトがあると便利だ。ポートを開くためにはルート権限が必要になる。
 
-```:flash.sh
+```
 #!/bin/sh
 
 DIR=target/thumbv7m-none-eabi/debug
@@ -908,7 +908,7 @@ $ tree
 ### src/gpio.rs
 
 Firmware Package の stm32f1xx_hal_gpio.c に対応する API を定義する。
-```rust:src/gpio.rs
+```rust
 #![allow(non_snake_case)]
 
 //! Interface of stm32f1xx_hal_gpio.c
@@ -1174,7 +1174,7 @@ CのAPIを外部参照している。引数の型は rust 流に翻訳する必�
 
 main.rs の方は gpio.rs のAPIを呼ぶだけで非常にシンプルである。
 
-```rust:main.rs
+```rust
 #![no_std]
 #![no_main]
 #![feature(lang_items)]
@@ -1237,7 +1237,7 @@ gpio.rs で定義したAPIを呼ぶ。
 
 上述したように、CubeMXの`main()`から `rust_main` を呼ぶ必要がある。次のようになっているはずなので、`/* USER CODE BEGIN 2*/`のあとに `rust_main()`の呼び出しを追加する。`/* USER CODE BEGIN */`から`/* USER CODE END */`の間に書いたコードは、CubeMXでコードを再生成しても維持される。
 
-```c:src/cubemx/Src/main.c
+```c
 int main(void)
 {
   HAL_Init();
@@ -1264,7 +1264,7 @@ int main(void)
 
 それを build.rs に記述する。build.rsは rustで記述できるので、変数や繰り返しを用いて効率的に書けるのが良い。以下では、使うCのファイルをダラダラと列挙したが、build.rsが自力で探してくるようにするのも良いだろう。
 
-```rust:build.rs
+```rust
 use std::process::Command;
 use std::env;
 use std::path::Path;
