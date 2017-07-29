@@ -845,7 +845,7 @@ CubeMXをダウンロードして起動する。ダウンロードにはメー�
 
 起動したら、「New Project」からプロジェクトを新規作成し、ボードを選択する。今回は NUCLEO-F103RB だ。ボードを選択すると、ボードで接続されているI/Oに合わせて、ピン設定がとペリフェラル設定がロードされる。自作のボードの場合は、MCUを選択して手動でピン設定する。
 
-<div align="center"><img src="cubemx/img/cubemx1.png" alt="cubemx"></div>
+<div align="center"><img src="/images/2017-07-30-cubemx1.png" alt="cubemx"></div>
 
 メニューの Project → Settings で、<strong>Toolchain/IDE を SW4STM32 を選択する</strong>のがコツ。ほかは適切に選択すれば良い。Project → Generate Code で必要な Firmware Package がインポートされ、初期化コードが生成される。
                 
@@ -1416,13 +1416,13 @@ cubemx::rust_main () at src/main.rs:20
 
 gdbをより使いやすくするのに gdb-dashboard(https://github.com/cyrus-and/gdb-dashboard) というのがある。書かれているように、.gdbinit に設定を保存しておいて、soucece .gdbinit で読み込むことによって、多彩な情報をカラフルに表示するのだ。シンタックスハイライトで #???が見にくい時は、.gdbinitで、syntax_hiliging が 'vim'になっているところを''にすれば良い。
 
-<div align="center"><img src="cubemx/img/gdb-dashboard.png" alt="cubemx"></div>
+<div align="center"><img src="/images/2017-07-30-gdb-dashboard.png" alt="cubemx"></div>
 
 ### VS Code + Native Debug Plugin
 
 もし VS Code を使っているのなら Native Debug Plugin という拡張を使うことで、VS Code 内蔵デバッガからgdbを使える。
 
-<div align="center"><img src="cubemx/img/vscode-debug.png" alt="cubemx"></div>
+<div align="center"><img src="/images/2017-07-30/vscode-debug.png" alt="cubemx"></div>
 
 ## サポートライブラリ
 
