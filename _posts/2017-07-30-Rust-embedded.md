@@ -1422,7 +1422,7 @@ gdbをより使いやすくするのに gdb-dashboard(https://github.com/cyrus-a
 
 もし VS Code を使っているのなら Native Debug Plugin という拡張を使うことで、VS Code 内蔵デバッガからgdbを使える。
 
-<div align="center"><img src="/images/2017-07-30/vscode-debug.png" alt="cubemx"></div>
+<div align="center"><img src="/images/2017-07-30-vscode-debug.png" alt="cubemx"></div>
 
 ## サポートライブラリ
 
