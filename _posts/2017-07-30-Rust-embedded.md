@@ -97,19 +97,19 @@ extern fn eh_personality () {}
 
 少しずつ解説していこう。
 
-```
+```rust
 #![no_std]
 ```
 
 このクレート内で標準ライブラリを使わないことを宣言する。`#![...]`記法は、それが書かれているコンテンツに影響を与えることを示している。
 
-```
+```rust
 #![no_main]
 ```
 
 このクレート内で通常のエントリポイントである`fn main`を持たないことを宣言する。
 
-```
+```rust
 #![feature(lang_items)]
 ```
 言語拡張である`#[lang=...]`を使えるようにする。
@@ -850,6 +850,7 @@ CubeMXをダウンロードして起動する。ダウンロードにはメー�
 メニューの Project → Settings で、<strong>Toolchain/IDE を SW4STM32 を選択する</strong>のがコツ。ほかは適切に選択すれば良い。Project → Generate Code で必要な Firmware Package がインポートされ、初期化コードが生成される。
                 
 次のようになっているはずだ。
+
 ```
 $ tree
 .
