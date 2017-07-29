@@ -75,7 +75,7 @@ thumbv7m-none-eabi
 
 最小限のプログラムを次に示す。まずは写経してみて欲しい。
 
-```
+```rust
 // src/main.rs
 #![no_std]
 #![no_main]
