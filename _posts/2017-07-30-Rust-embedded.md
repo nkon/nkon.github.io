@@ -9,7 +9,7 @@ tags: rust, embedded
 
 ## 環境構築
 
-前提とする環境は次のとおり。ホストについては Ubuntu なら apt-get で入る(なんて楽なんだろう)。CubeMX は ST のサイト(http://www.st.com/ja/development-tools/stm32cubemx.html)からインストールする。ダウンロードするのにメールアドレスの登録を求められるが、そういった前時代的なものは滅んで欲しいものだ。ターゲットは、日本橋や通販で購入できるだろう。
+前提とする環境は次のとおり。ホストについては Ubuntu なら apt-get で入る(なんて楽なんだろう)。CubeMX は ST のサイト([http://www.st.com/ja/development-tools/stm32cubemx.html](http://www.st.com/ja/development-tools/stm32cubemx.html)からインストールする。ダウンロードするのにメールアドレスの登録を求められるが、そういった前時代的なものは滅んで欲しいものだ。ターゲットは、日本橋や通販で購入できるだろう。
 
 Host
 * OS: Linux(Ubuntu 16.04LTS 64bit)
@@ -21,8 +21,8 @@ Host
 * CubeMX:4.22.0
 
 Target
-* Board: NUCLEO-F103RB(http://www.st.com/ja/evaluation-tools/nucleo-f103rb.html)
-* MCU: STM32F103RB(http://www.st.com/ja/microcontrollers/stm32f103rb.html)
+* Board: NUCLEO-F103RB([http://www.st.com/ja/evaluation-tools/nucleo-f103rb.html](http://www.st.com/ja/evaluation-tools/nucleo-f103rb.html))
+* MCU: STM32F103RB([http://www.st.com/ja/microcontrollers/stm32f103rb.html](http://www.st.com/ja/microcontrollers/stm32f103rb.html))
 * Debugger: ST-Link/V2(On board)
 
 ここでターゲットにしているMCUである STM32F103RB は、Cortex-M というカテゴリーに属する。'A','R','M'のなかの最下層の'M'だ。Cortex-M には、さらに 'M0', 'M0+', 'M1', M3', 'M4', 'M7' とランクがわかれている。STM32F103RB は Cortex-M3 に属する。Cortex-M3 は ARM v7-M Thumb 命令セットを持つ。
@@ -1414,7 +1414,7 @@ cubemx::rust_main () at src/main.rs:20
 
 ### gdb-dashboard
 
-gdbをより使いやすくするのに gdb-dashboard(https://github.com/cyrus-and/gdb-dashboard) というのがある。書かれているように、.gdbinit に設定を保存しておいて、soucece .gdbinit で読み込むことによって、多彩な情報をカラフルに表示するのだ。シンタックスハイライトで #???が見にくい時は、.gdbinitで、syntax_hiliging が 'vim'になっているところを''にすれば良い。
+gdbをより使いやすくするのに gdb-dashboard([https://github.com/cyrus-and/gdb-dashboard](https://github.com/cyrus-and/gdb-dashboard)) というのがある。書かれているように、.gdbinit に設定を保存しておいて、soucece .gdbinit で読み込むことによって、多彩な情報をカラフルに表示するのだ。シンタックスハイライトで #???が見にくい時は、.gdbinitで、syntax_hiliging が 'vim'になっているところを''にすれば良い。
 
 <div align="center"><img src="/images/2017-07-30-gdb-dashboard.png" alt="cubemx"></div>
 
@@ -1428,4 +1428,4 @@ gdbをより使いやすくするのに gdb-dashboard(https://github.com/cyrus-a
 
 Lチカができたらプログラムが書けるかといえばそうではない。HALでも、最低限、UART, TIM は欲しいし、ADCも優先度が高い。CubeMXで生成されるのでプロジェクトごとに代わる部分はブロジェクトに属させ、そうでない部分は、ライブラリとして独立させるべきだ。また、HALだけでなく、Lock や Queue(FIFO)などのライブラリも欲しくなってくる。なぜならOS無し環境では `#![no_std]`なので、便利なユーティリティが供給されておらず、自作しなければならないからだ。
 
-わたしのGitHubのリポジトリ(https://github.com/nkon/stm32cubef1)でも少しずつ整備してゆきたい。
+わたしのGitHubのリポジトリ([https://github.com/nkon/stm32cubef1](https://github.com/nkon/stm32cubef1))でも少しずつ整備してゆきたい。
