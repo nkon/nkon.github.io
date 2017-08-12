@@ -5,6 +5,8 @@ category: blog
 tags: blog, gpd_pocket, windows10, bash_on_windows, docker, docker_for_windows, rust, python
 ---
 
+GPD Pocket を購入したので設定メモ。Windows10を使うのも初めてということもあり、前半はGPD Pocket 特有の話も書いてあるが、後半はWindows10の環境構築の話がメインになってしまった。
+
 # 処理能力
 * マルチタスク的な状況だと重さを感じる。たとえば、ブラウザを起動して複数のページを処理しているときとか、Facebookのウェブページとか。
 * タスクマネージャで見るとCPU は4つ見える。
