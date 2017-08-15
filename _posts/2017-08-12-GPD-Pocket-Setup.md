@@ -53,6 +53,8 @@ GUIアプリもXサーバ経由で使えるのでインストールした。Wind
 ## Docker for Windows
 サーバ環境はDocker for Windowsを使ってみた。VirtualBoxでも動作可能だと思うが、今さらサーバをapt-getでバージョン管理したくないので。起動に時間がかかる。Docker for Windowsの性能か、Atom-ZのHyper-V性能が悪いのかは不明。ときどき不安定でDockerが死ぬことがあるが、一応は使えている。
 
+VirtualBox とスリープの相性問題も報告されており、通常の仮想マシンを使うにしてもHyper-Vにというのもある。
+
 ## Python
 Anaconda を入れた。
 
