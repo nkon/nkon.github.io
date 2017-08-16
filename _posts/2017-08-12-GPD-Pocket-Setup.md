@@ -18,6 +18,8 @@ GPD Pocket を購入したので設定メモ。Windows10を使うのも初めて
 # バッテリー
 MIROさんの記事に従ってレジストリを編集し、電源オプションでカバーを開いたときのアクションを設定できるようにして「何もしない」にすればOK。ちゃんとスリープ(メモリを保持)＆休止(ディスクにメモリを書き出す)してくれるし、ちょっと使いには十分バッテリーが持つ。3時間ぐらいが実用か？ スリープは、勝手に起動することがあるので休止で運用中。
 
+<div align="center"><img src="/images/2017-08-12-gpd-pocket-power-plan1.png" alt="powerplan"></div>
+
 # キーボード、ポインタ
 自宅ではUbuntu+Realforce(JIS配列,かな入力,Mozc,変換/無変換でIME ON/OFF)、有線Microsoft Mouse。勤務先ではLet's Note+Windows 7(JIS配列,ローマ字入力,MS-IME, Alt+漢字でIME ON/OFF')、ホイールパッド(ホイールスクロールやタップを無効)、という構成。
 
