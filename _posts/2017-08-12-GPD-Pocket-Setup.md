@@ -104,8 +104,55 @@ Anaconda を入れた。
 
 おかげで、だいぶ詳しくなった。
 
+## powercfg
+
+電源設定のフロントエンドとなっているのが powercfg.exe だ。
+
+### 主要なオプションを表示する
+
+```
+C:\WINDOWS\system32>powercfg /help
+```
+
+### ウェイクアップタイマーの一覧を表示する
+
+これらがあると、タイマーでスリープが解除されてしまうおそれがある。
+
+```
+C:\WINDOWS\system32>powercfg /waketimers
+システムにアクティブなスリープ解除タイマーがありません。
+```
+
+### デバイスから起動するものたち
+
+これらのデバイスはスリープを解除して起動してしまう。
+
+```
+C:\WINDOWS\system32>powercfg /devicequery wake_armed
+HID 準拠マウス
+HID キーボード デバイス (001)
+```
+
+ちなみに、可能性がある一覧をリストするのはこちら。個々のデバイスのプロパティから、このデバイスでスリープを解除するかどうかを設定できる。
+
+```
+C:\WINDOWS\system32>powercfg /devicequery wake_programmable
+HID 準拠ベンダー定義デバイス
+HID 準拠マウス
+Realtek I2S Audio Codec
+HID キーボード デバイス (001)
+HID 準拠システム コントローラー (002)
+HID 準拠コンシューマー制御デバイス (007)
+HID 準拠ワイヤレス無線コントロール (001)
+```
+
+より詳しくは `powercfg /devicequery /?`。
+
+
+## レジストリの謎
+
 省電力設定のほとんどは隠されていて、設定可能にするにはレジストリの編集が必要だ。
-いわゆる、`\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Power\PowerSettings`の下の16進の文字列だ。
+いわゆる、`\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Power\PowerSettings`の下の16進の文字列(GUID)だ。
 
 ### 一覧を取得
 
