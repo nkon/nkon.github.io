@@ -7,6 +7,11 @@ tags: blog, gpd_pocket, windows10, bash_on_windows, docker, docker_for_windows, 
 
 GPD Pocket を購入したので設定メモ。Windows10を使うのも初めてということもあり、前半はGPD Pocket 特有の話も書いてあるが、後半はWindows10の環境構築の話がメインになってしまった。
 
+# 初期設定
+Wiki(http://gpd.wiki)[http://gpd.wiki] ができて情報が集約されているので、まずはそちらを参照する。
+* Wifi driverの更新
+
+
 # 処理能力
 * マルチタスク的な状況だと重さを感じる。たとえば、ブラウザを起動して複数のページを処理しているときとか、Facebookのウェブページとか。
 * タスクマネージャで見るとCPU は4つ見える。
@@ -15,10 +20,13 @@ GPD Pocket を購入したので設定メモ。Windows10を使うのも初めて
 * System task が30%ほど電力を食い続ける→Intel DPTF ドライバの不良。最新のWindows Update で直っている(8.3.10205.4743 [2017/06/22])？
 * 30%以上にCPUが回らない→BIOSの不具合？ 2017/07/03より以前のBIOSにすれば治る？ 2017-08-16時点では対策中？
 
-# バッテリー
-MIROさんの記事に従ってレジストリを編集し、電源オプションでカバーを開いたときのアクションを設定できるようにして「何もしない」にすればOK。ちゃんとスリープ(メモリを保持)＆休止(ディスクにメモリを書き出す)してくれるし、ちょっと使いには十分バッテリーが持つ。3時間ぐらいが実用か？ スリープは、勝手に起動することがあるので休止で運用中。
+# バッテリー＆スリープ
+MIROさんの記事に従ってレジストリを編集し、電源オプションでカバーを開いたときのアクションを設定できるようにして「何もしない」にすればOK。ちゃんとスリープ(メモリを保持)＆休止(ディスクにメモリを書き出す)してくれるし、ちょっと使いには十分バッテリーが持つ。3時間ぐらいが実用か？
+スリープから勝手に起動してしまう場合はWifiドライバの手動更新と、IO一体化タイムアウトのレジストリ編集で治ると思う。
+休止からの復帰は、上述の30% 問題があるので、スリープでの運用が推奨されている。
 
-<div align="center"><img src="/images/2017-08-12-gpd-pocket-power-plan1.png" alt="powerplan"></div>
+
+<div align="center"><img src="/images/2017-08-12-gpd-pocket-power-plan1.png" alt="powerplan"><img src="/images/2017-08-12-gpd-pocket-power-plan2.png" alt="powerplan"></div>
 
 # キーボード、ポインタ
 自宅ではUbuntu+Realforce(JIS配列,かな入力,Mozc,変換/無変換でIME ON/OFF)、有線Microsoft Mouse。勤務先ではLet's Note+Windows 7(JIS配列,ローマ字入力,MS-IME, Alt+漢字でIME ON/OFF')、ホイールパッド(ホイールスクロールやタップを無効)、という構成。
@@ -29,6 +37,7 @@ AutoHotKey を使って、キー配列をカスタマイズした。
 * `AppsKey::MButton` アプリケーションキー(スペースキーの右にある[三])をマウスのミドルボタンに割り当ててスクロールさせる。
 * `RAlt::Send, {vkF3sc029}` 右ALTキーを、全角半角キーに割り当てて、IMEのON/OFFを右ALTキーで行う。
 * `CapsLock::Tab`, `Tab::CapsLock` TABとCapsLockを入れ替える。本来、TABはQの左だが、Aの左のほうがまだマシ。コマンドラインの補完で使用頻度が高い。
+* `Delete::Backspace`,`Backspace::Delete` BS と Del だとBSの方が使用頻度が高いので、電源キーより遠いところに配置する。そもそも、通常のキーボードでは、Enterの上はBS。
 
 BSキーと電源が近接しているのは殺意を覚えることがしばしばある。
 
