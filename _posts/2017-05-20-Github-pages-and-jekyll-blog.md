@@ -10,7 +10,7 @@ comment: true
 
 1. GitHub のアカウントページ
 
-    https://github.com/ACCOUNT を持っている場合、github pages という機能によって、https://ACCOUNT.github.io/ という WebSite が使える。
+    https://github.com/ACCOUNT を持っている場合、Github pages という機能によって、https://ACCOUNT.github.io/ という WebSite が使える。
 
     * https://github.com/ACCOUNT/ACCOUNT.github.io というリポジトリを作成すれば良い。
     * https://ACCOUNT.github.io/ というサイトが作成される。
@@ -36,7 +36,7 @@ GitHub Pages 自体は、単なるサイト公開の機能しか無いので、�
 
     * ローカルに入れる
 
-        jekyll 自体は ruby で書かれた、静的ファイル出力型のブログツールだ。`gem install jekyll` でインストールできる。
+        jekyll 自体は Ruby で書かれた、静的ファイル出力型のブログツールだ。`gem install jekyll` でインストールできる。
 
     * セットアッブ済みのリポジトリをフォークする
     
@@ -101,7 +101,7 @@ disqus のサイトに行って登録する。サイトタイプは Jekyll を�
 最近の `_layout/post.html`には、すでに次の記述があるので `_layout/disqus.html`を作成し、disqus で指定されたコードをそこに貼る。
 
 ```
-  {% include disqus.html %}
+  \{% include disqus.html %\}
 
 ```
 
