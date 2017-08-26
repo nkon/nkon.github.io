@@ -101,8 +101,7 @@ disqus のサイトに行って登録する。サイトタイプは Jekyll を�
 最近の `_layout/post.html`には、すでに次の記述があるので `_layout/disqus.html`を作成し、disqus で指定されたコードをそこに貼る。
 
 ```
-  \{% include disqus.html %\}
-
+aaaa
 ```
 
 
