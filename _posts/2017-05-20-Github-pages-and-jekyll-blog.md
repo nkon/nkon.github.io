@@ -47,6 +47,8 @@ GitHub Pages 自体は、単なるサイト公開の機能しか無いので、�
 
 ここでは、ローカル環境が不要な jekyll を用いてゆこう。
 
+# jekyll-now と GitHub Pages でブログを作る
+
 ## 雛形のフォーク
 
 * いきなりだが、https://github.com/barryclark/jekyll-now にアクセスする。
@@ -54,7 +56,7 @@ GitHub Pages 自体は、単なるサイト公開の機能しか無いので、�
 * https://ACCOUNT.github.io/ にアクセスすると、ページが居る。
 * https://github.com/ACCOUNT/ACCOUNT.github.io をカスタマイズする。まずはローカルに pull する。
 
-## カスタマイズ
+## 初期設定
 
 * `_config.yml` は、最低限、次のところを修正しよう。
    
@@ -87,6 +89,8 @@ title: You're up and running!
 ```
 
 これが、その記事だ。
+
+# カスタマイズ
 
 ## Draftの作成
 

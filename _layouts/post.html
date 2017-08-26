@@ -9,6 +9,12 @@ layout: default
     Written on {{ page.date | date: "%Y-%m-%d" }}
   </div>
 
+  <div class="tag">
+    {% for tag in tags %}
+      <a href="{{ site.baseurl }}/tags#{{ tag | slugize }}">{{ tag }} </a>
+    {% endfor %}
+  </div>
+
   <div class="entry">
     {{ content }}
   </div>
