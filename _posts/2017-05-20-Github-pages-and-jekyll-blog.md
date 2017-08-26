@@ -77,6 +77,9 @@ push して、[Setting] の [GitHub Pages] が [Your site is published at...]と
 * `_post/` ディレクトリに `YYYY-MM-DD-xxxxxxx.md`というファイルを push すれば、記事を投稿したことになる。
 * 先頭部分は YAML 形式で Front Matter を書く。もともとあったファイルを参照する。
 * それ以外に、`category`, `tags` などが使える。 
+* 記事を push したら `https://github.com/ACCOUNT/ACCOUNT.github.io/settings`の Option→GitHub Pages のところで発行状態を確認できる。もしかしたら、ビルドエラーがでてるかも。
+
+
 ```
 ---
 layout: post
@@ -98,7 +101,7 @@ Jykyll は静的HTML作成ツールなのでコメントは外部サービスを
 
 disqus のサイトに行って登録する。
 
-最近の Jekyll の `_post/html`には `\{% include disqus.html %\}`がすでに設定されている。これは`_includes/disqus.html`を読み込む。
+最近の Jekyll の `_post/html`には `\{\% include disqus.html \%\}`がすでに設定されている。これは`_includes/disqus.html`を読み込む。
 `_includes/discus.html`には、`site.disqus`変数を利用して動作する。
 
 つまり、`_config.yml`の`discus:`が空欄になっているのて、そこに disqus アカウントを設定すれば良い。
