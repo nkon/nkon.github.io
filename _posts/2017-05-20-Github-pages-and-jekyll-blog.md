@@ -99,9 +99,3 @@ Jykyll は静的HTML作成ツールなのでコメントは外部サービスを
 disqus のサイトに行って登録する。サイトタイプは Jekyll を選べば良い。
 
 最近の `_layout/post.html`には、すでに次の記述があるので `_layout/disqus.html`を作成し、disqus で指定されたコードをそこに貼る。
-
-```
-aaaa
-```
-
-
