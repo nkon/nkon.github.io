@@ -4,7 +4,6 @@ title: GitHub で Blog を作る
 category: blog
 tags: github, jekyll
 comment: true
-site: disqus
 ---
 
 プログラミング関係のブログを GitHub Pages を使って作成しよう。方法はいくつかある。
