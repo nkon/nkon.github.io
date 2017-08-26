@@ -96,7 +96,13 @@ title: You're up and running!
 
 Jykyll は静的HTML作成ツールなのでコメントは外部サービスを使う。Disqus がよく使われるようだ。
 
-disqus のサイトに行って登録する。サイトタイプは Jekyll を選べば良い。
+disqus のサイトに行って登録する。
 
-`_layout/post.html`の末尾に disqus で指定されたコードを貼る。
+最近の Jekyll の `_post/html`には `{% include disqus.html %}`がすでに設定されている。これは`_includes/disqus.html`を読み込む。
+`_includes/discus.html`には、`site.disqus`変数を利用して動作する。つまり、`_config.yml`の`discus:`が空欄になっているのて、そこに disqus アカウントを設定すれば良い。
+
+## google analytics
+
+同様に、`_config.yml`の `google_analytics`に自分の GAアカウントを設定すれば、`_layout/default.html`で`_includes/analytics.html`を読み込んでいるので、google_analytics が有効になる。
+
 
