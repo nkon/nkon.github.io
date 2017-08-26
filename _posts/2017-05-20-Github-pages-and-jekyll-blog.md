@@ -3,7 +3,6 @@ layout: post
 title: GitHub で Blog を作る
 category: blog
 tags: github, jekyll
-comment: true
 ---
 
 プログラミング関係のブログを GitHub Pages を使って作成しよう。方法はいくつかある。
@@ -75,9 +74,9 @@ push して、[Setting] の [GitHub Pages] が [Your site is published at...]と
 ## 記事の投稿
 
 * `_post/` ディレクトリに `YYYY-MM-DD-xxxxxxx.md`というファイルを push すれば、記事を投稿したことになる。
+* 記事を push したら `https://github.com/ACCOUNT/ACCOUNT.github.io/settings`の Option→GitHub Pages のところで発行状態を確認できる。もしかしたら、ビルドエラーが出てるかも。
 * 先頭部分は YAML 形式で Front Matter を書く。もともとあったファイルを参照する。
 * それ以外に、`category`, `tags` などが使える。 
-* 記事を push したら `https://github.com/ACCOUNT/ACCOUNT.github.io/settings`の Option→GitHub Pages のところで発行状態を確認できる。もしかしたら、ビルドエラーがでてるかも。
 
 
 ```
