@@ -3,6 +3,7 @@ layout: post
 title: GitHub で Blog を作る
 category: blog
 tags: github, jekyll
+comment: true
 ---
 
 プログラミング関係のブログを GitHub Pages を使って作成しよう。方法はいくつかある。
@@ -83,7 +84,25 @@ title: You're up and running!
 ---
 ```
 
-
-
 これが、その記事だ。
+
+## Draftの作成
+
+長文の場合は下書きが必要だ。下書きは Publish しないが、GitHubでの管理はしたい。
+
+その場合は `_drafts/`ディレクトリに、日付ナシの *.md ファイルを作成すれば良い。
+
+## コメントの追加
+
+Jykyll は静的HTML作成ツールなのでコメントは外部サービスを使う。Disqus がよく使われるようだ。
+
+disqus のサイトに行って登録する。サイトタイプは Jekyll を選べば良い。
+
+最近の `_layout/post.html`には、すでに次の記述があるので `_layout/disqus.html`を作成し、disqus で指定されたコードをそこに貼る。
+
+```
+  {% include disqus.html %}
+
+```
+
 
