@@ -114,3 +114,62 @@ disqus のサイトに行って登録する。
 同様に、`_config.yml`の `google_analytics`に自分の GAアカウントを設定すれば、`_layout/default.html`で`_includes/analytics.html`を読み込んでいるので、google_analytics が有効になる。
 
 
+## 投稿日の追加
+
+ブログは、いつ書かれたかが重要だが、デフォルトでは表示されない。
+
+テンプレート中で、`page.date`という変数で、記事の日付(ファイル名から得られる、または YAML front matter に書かれる)を取得することができる。
+これを `date: "%Y-%m-d"`のようにフォーマットしてやれば良い。フォーマット文字列は、strfmt に準じている。
+
+以下を `_layout/post.html`に記載する。
+
+```
+  <div class="date">
+    Written on {{ page.date | date: "%Y-%m-%d" }}
+  </div>
+```
+
+## tag
+
+ブロクにはいろいろな種類の記事があるが、関連する他の記事を読みたくなることがある。そういう時は、記事の tag または category が助けになる。
+Jekyll の YAML front matter には tags: でタグが書けるが、標準のテンプレートでは活用していない。
+
+各記事の YAML front matter にタグ情報を書く。
+`tags:`で始まって、`,`区切りで複数書ける。
+
+```
+---
+layout: post
+title: GitHub で Blog を作る
+category: blog
+tags: github, jekyll
+---
+```
+
+テンプレート中で `page.tags`の各要素に対して tag を生成する。tag のリンク先は `/tags.html` の中とする。
+
+```
+  <div class="tag">
+    \{\% for tag in page.tags \%\}
+      <a href="{{ site.baseurl }}/tags#{{ tag | slugize }}">{{ tag }} </a>
+    \{\% endfor \%\}
+  </div>
+```
+
+`/tags.html` では、`site.tags`からタグ一覧を拾って、そのタグを持つページを `site.tags[tag_name]`で逆リンクする。
+```
+<ul class="tag-cloud">
+  \{\% for tag_name in tag_names \%\}
+    <li>
+      <a href="{{ baseurl }}/tags#{{ tag_name | slugize }}">
+        {{ tag_name }}
+      </a>
+    </li>
+  \{\% endfor \%\}
+</ul>
+```
+
+
+(http://qiita.com/mnishiguchi/items/fa1e8fd2e893ea801ce8)[http://qiita.com/mnishiguchi/items/fa1e8fd2e893ea801ce8]
+を参照した。
+
