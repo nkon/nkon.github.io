@@ -129,7 +129,7 @@ disqus のサイトに行って登録する。
   </div>
 ```
 
-※ テンプレートの記法がうまく書けないのでエスケープしている。
+※ テンプレートの記法(Liquid)がうまく書けないのでエスケープしている。
 
 ## tag
 
@@ -153,22 +153,24 @@ tags: github, jekyll
 ```html
   <div class="tag">
     \{\% for tag in page.tags \%\}
-      <a href="\{\{ site.baseurl \}\}/tags#\{\{ tag | slugize \}\}">\{\{ tag \}\} </a>
+      <a href="\{\{ site.baseurl \}\}/tags#\{\{ tag \}\}">\{\{ tag \}\} </a>
     \{\% endfor \%\}
   </div>
 ```
 
-`/tags.html` では、`site.tags`からタグ一覧を拾って、そのタグを持つページを `site.tags[tag_name]`で逆リンクする。
+`/tags.html` では、`site.tags`からタグ一覧を拾って、そのタグを持つページを `tag[1]`で逆リンクする。
 ```html
-<ul class="tag-cloud">
-  \{\% for tag_name in tag_names \%\}
-    <li>
-      <a href="\{\{ baseurl \}\}/tags#\{\{ tag_name | slugize \}\}">
-        \{\{ tag_name \}\}
-      </a>
-    </li>
-  \{\% endfor \%\}
-</ul>
+\{\% for tag in site.tags \%\}
+<article>
+  <h1 id="\{\{ tag[0] \}\}">\{\{ tag[0] \}\}</h1>
+  <ul>
+    \{\% for post in tag[1] \%\}
+    <li><a href="\{\{ post.url \}\}">\{\{ post.title \}\}</a></li>
+    \{\% endfor \%\}
+  </ul>
+</article>
+\{\% endfor \%\}
+
 ```
 
 [http://qiita.com/mnishiguchi/items/fa1e8fd2e893ea801ce8](http://qiita.com/mnishiguchi/items/fa1e8fd2e893ea801ce8)、
