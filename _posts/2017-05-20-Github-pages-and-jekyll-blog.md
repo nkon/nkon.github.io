@@ -171,6 +171,7 @@ tags: github, jekyll
 </ul>
 ```
 
-[http://qiita.com/mnishiguchi/items/fa1e8fd2e893ea801ce8](http://qiita.com/mnishiguchi/items/fa1e8fd2e893ea801ce8)
+[http://qiita.com/mnishiguchi/items/fa1e8fd2e893ea801ce8](http://qiita.com/mnishiguchi/items/fa1e8fd2e893ea801ce8)、
+[http://genjiapp.com/blog/2013/11/21/simple-tags-page-for-jekyll.html](http://genjiapp.com/blog/2013/11/21/simple-tags-page-for-jekyll.html)
 を参照した。
 
