@@ -125,9 +125,11 @@ disqus のサイトに行って登録する。
 
 ```html
   <div class="date">
-    Written on {{ page.date | date: "%Y-%m-%d" }}
+    Written on \{\{ page.date | date: "%Y-%m-%d" \}\}
   </div>
 ```
+
+※ テンプレートの記法がうまく書けないのでエスケープしている。
 
 ## tag
 
@@ -151,7 +153,7 @@ tags: github, jekyll
 ```html
   <div class="tag">
     \{\% for tag in page.tags \%\}
-      <a href="{{ site.baseurl }}/tags#{{ tag | slugize }}">{{ tag }} </a>
+      <a href="\{\{ site.baseurl \}\}/tags#\{\{ tag | slugize \}\}">\{\{ tag \}\} </a>
     \{\% endfor \%\}
   </div>
 ```
@@ -161,8 +163,8 @@ tags: github, jekyll
 <ul class="tag-cloud">
   \{\% for tag_name in tag_names \%\}
     <li>
-      <a href="{{ baseurl }}/tags#{{ tag_name | slugize }}">
-        {{ tag_name }}
+      <a href="\{\{ baseurl \}\}/tags#\{\{ tag_name | slugize \}\}">
+        \{\{ tag_name \}\}
       </a>
     </li>
   \{\% endfor \%\}
