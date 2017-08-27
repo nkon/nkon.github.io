@@ -123,7 +123,7 @@ disqus のサイトに行って登録する。
 
 以下を `_layout/post.html`に記載する。
 
-```
+```html
   <div class="date">
     Written on {{ page.date | date: "%Y-%m-%d" }}
   </div>
@@ -148,7 +148,7 @@ tags: github, jekyll
 
 テンプレート中で `page.tags`の各要素に対して tag を生成する。tag のリンク先は `/tags.html` の中とする。
 
-```
+```html
   <div class="tag">
     \{\% for tag in page.tags \%\}
       <a href="{{ site.baseurl }}/tags#{{ tag | slugize }}">{{ tag }} </a>
@@ -157,7 +157,7 @@ tags: github, jekyll
 ```
 
 `/tags.html` では、`site.tags`からタグ一覧を拾って、そのタグを持つページを `site.tags[tag_name]`で逆リンクする。
-```
+```html
 <ul class="tag-cloud">
   \{\% for tag_name in tag_names \%\}
     <li>
