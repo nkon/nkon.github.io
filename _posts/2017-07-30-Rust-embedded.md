@@ -2,7 +2,7 @@
 layout: post
 title: rust で組み込み(Cortex-M3)
 category: blog
-tags: rust, embedded
+tags: rust embedded
 ---
 
 この記事では、rust を使ってCortex-Mの上で直接(ベアメタルで)動作するプログラムの作り方を説明する。全部を自前で書くのではなく、STが提供する CubeMX といったツールや HAL を有効活用することを基本方針とする。

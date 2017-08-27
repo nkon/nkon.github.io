@@ -2,7 +2,7 @@
 layout: post
 title: GitHub で Blog を作る
 category: blog
-tags: github, jekyll
+tags: github jekyll
 ---
 
 プログラミング関係のブログを GitHub Pages を使って作成しよう。方法はいくつかある。
@@ -137,14 +137,14 @@ disqus のサイトに行って登録する。
 Jekyll の YAML front matter には tags: でタグが書けるが、標準のテンプレートでは活用していない。
 
 各記事の YAML front matter にタグ情報を書く。
-`tags:`で始まって、`,`区切りで複数書ける。
+`tags:`で始まって、` `区切りで複数書ける。
 
 ```
 ---
 layout: post
 title: GitHub で Blog を作る
 category: blog
-tags: github, jekyll
+tags: github jekyll
 ---
 ```
 

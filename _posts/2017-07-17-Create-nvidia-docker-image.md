@@ -2,7 +2,7 @@
 layout: post
 title: nvdia-docker で ディープラーニング用の環境を作る
 category: blog
-tags: docker, ai, ubuntu
+tags: docker ai ubuntu
 ---
 
 AIでいろいろ遊んで見るために、まずは環境構築する。
