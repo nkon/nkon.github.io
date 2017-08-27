@@ -159,17 +159,16 @@ tags: github, jekyll
 `/tags.html` では、`site.tags`からタグ一覧を拾って、そのタグを持つページを `site.tags[tag_name]`で逆リンクする。
 ```
 <ul class="tag-cloud">
-  \{\% for tag_name in tag_names \%\}
+  {% for tag_name in tag_names %}
     <li>
       <a href="{{ baseurl }}/tags#{{ tag_name | slugize }}">
         {{ tag_name }}
       </a>
     </li>
-  \{\% endfor \%\}
+  {% endfor %}
 </ul>
 ```
 
-
-(http://qiita.com/mnishiguchi/items/fa1e8fd2e893ea801ce8)[http://qiita.com/mnishiguchi/items/fa1e8fd2e893ea801ce8]
+[http://qiita.com/mnishiguchi/items/fa1e8fd2e893ea801ce8](http://qiita.com/mnishiguchi/items/fa1e8fd2e893ea801ce8)
 を参照した。
 
