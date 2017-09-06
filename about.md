@@ -4,12 +4,14 @@ title: About
 permalink: /about/
 ---
 
-Some information about you!
+This is subsite about programing.
 
-### More Information
+Main sites are as follows.
 
-A place to include any other types of information that you'd like to include about yourself.
+* [http://park11.wakwak.com/~nkon/](http://park11.wakwak.com/~nkon/)
+* [https://srad.jp/~kondou/journal](https://srad.jp/~kondou/journal)
+
 
 ### Contact me
 
-[email@domain.com](mailto:email@domain.com)
+* [http://park11.wakwak.com/~nkon/mailform.html](http://park11.wakwak.com/~nkon/mailform.html)
