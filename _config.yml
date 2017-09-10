@@ -39,6 +39,9 @@ disqus: nkon
 # Enter your Google Analytics web tracking code (e.g. UA-2110908-2) to activate tracking
 google_analytics: UA-99595909-1
 
+# Enter your amazon associate ID
+amazon_associate:
+
 # Your website URL (e.g. http://barryclark.github.io or http://www.barryclark.co)
 # Used for Sitemap.xml and your RSS feed
 url: https://github.com/nkon/nkon.github.io
