@@ -67,15 +67,15 @@ WindowsでもLinuxでも動作するとなると、ファイルを指定する�
 
 ### ライブラリディレクトリの指定の方法
 
-Pythonではライブラリのディレクトリをモジュールとして扱うためには、そのディレクトリの中に`__init__.py`というファイル(からで良い)を作っておく必要がある。そして、プロジェクトのトップディレクトリを`sys.path`に`append`しておく。そうすれば、トップディレクトリからの相対パスで、システムのモジュールと同様な感じで`import`することができる。
+Pythonではライブラリのディレクトリをパッケージとして扱うためには、そのディレクトリの中に`__init__.py`というファイル(からで良い)を作っておく必要がある。そして、プロジェクトのトップディレクトリを`sys.path`に`append`しておく。そうすれば、トップディレクトリからの相対パスで、システムのモジュールと同様な感じで`import`することができる。
 
 トップディレクトリの`index.cgi`の場合
-```
+```python
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 ```
 `sys/`ディレクトリの中のライブラリファイルの場合
 
-```
+```python
 sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)),os.path.pardir))
 ```
 
@@ -99,7 +99,7 @@ Python3はUnicodeにネイティブに対応している。Windows上では、�
 
 原因は、ユーザ環境では通常`LANG=UTF-8`という環境変数がセットされているが、CGI環境ではセットされていないか`LANG=C`なためだ。CGI環境でUTF-8入出力を行うためには、次のような一文が必要だ。
 
-```
+```python
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 ```
 
@@ -108,16 +108,24 @@ sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 
 Pythonには標準でユニットテストの機能がある。`test/`以下にテストコードをおいて、`src/`以下のユーザコードをテストするには、`./`を基準として`src/`を読み込むようにモジュール検索パスを指定する。
 
-
 そのうえで、テスト対象の識別子をすべてimportすればよい。
 
 unittestの書き方は
+```python
+import unittest
+
+from src.file_under_test import *
+
+class Test_module_under_test(unittest, TestCase):
+    def test_function_under_test(self):
+        # テスト入力データをセット
+        # テスト対象関数の実行
+        # 期待値のセット
+        # self.assertEqual(expected, ret)
 ```
 
-```
-
-テストディスカバリーのやり方は
+テストディスカバリーのやり方は次のとおり。対象ディレクトリ以下のUnitTestを拾い集めて、全て実行してくれる。
 
 ```
-
+python -m unittest discover
 ```
