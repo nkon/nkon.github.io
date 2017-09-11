@@ -67,6 +67,17 @@ WindowsでもLinuxでも動作するとなると、ファイルを指定する�
 
 ### ライブラリディレクトリの指定の方法
 
+Pythonではライブラリのディレクトリをモジュールとして扱うためには、そのディレクトリの中に`__init__.py`というファイル(からで良い)を作っておく必要がある。そして、プロジェクトのトップディレクトリを`sys.path`に`append`しておく。そうすれば、トップディレクトリからの相対パスで、システムのモジュールと同様な感じで`import`することができる。
+
+トップディレクトリの`index.cgi`の場合
+```
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+```
+`sys/`ディレクトリの中のライブラリファイルの場合
+
+```
+sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)),os.path.pardir))
+```
 
 ### CGI
 
