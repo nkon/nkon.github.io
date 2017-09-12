@@ -51,6 +51,13 @@ CSVファイルを扱うライブラリ。Excelのデータをテキストでや
 CSVは標準でライブラリがあるのでありがたく使わせていただく。
 `csv`ライブらいでは、CSVファイルをオープンして、`reader`というストリームに割り付けて読み込んでいく。ストリームであれば、ファイルではなく文字列でも良いので、Web Interfaceにしたときにも扱いやすい。
 
+```python
+form = cgi.FieldStorage()
+reader_from_string = csv.reader(form.getvalue('input', 0).decode('utf-8').strip().spltlines())
+with open(filename, 'r') as f:
+    reader_from_file = csv.reader(f)
+```
+
 ### ツリー構成
 
 * ルートディレクトリは index.cgiとか。
@@ -59,7 +66,7 @@ CSVは標準でライブラリがあるのでありがたく使わせていた�
 
 ### `if __name__ == '__main__'`
 
-個々のファイルは、ライブラリとして import することもできる。スクリプトとして直接実行されたときでは、このif 文が成立するので、そのライブラリの動作確認用の「main」ルーチンを書いておくことができる。簡単なコマンドとして実行テストすることができるライブラリは便利だ。
+個々のファイルは、モジュールとして import することもできる。スクリプトとして直接実行されたときでは、このif 文が成立するので、そのライブラリの動作確認用の「main」ルーチンを書いておくことができる。簡単なコマンドとして実行テストすることができるライブラリは便利だ。
 
 ### OSのパスの取り扱い
 
@@ -92,6 +99,20 @@ Windows上でコマンドラインツールとして機能を開発し、その�
 * `value = form.getfirst('key')` とすると、`value`に`key`で指定したフォームデータが得られる。`value=form['key']`としたいところだが、`key`に対応する値が2つ以上あった場合、リストが帰ってきて、型不整合を起こすので、常に`getfirst`を使うのが良いだろう。デフォルト値も持たせることができる。
 * フォーム側を`multipart/form-data`にしておけば、ファイルのアップロードも対応可能だ。
 * エラー表示のために`import cgitb`せよと書かれているが、役に立つケースは半分ぐらい。結局`sudo tail /var/log/apache2/error.log`するはめになることが多い。
+
+### Template
+
+Pythonの`string`クラスは標準でテンプレート機能を持っている。`from string import Template`とすれば使えるようになる。
+
+テンプレートファイルの方では、置き換えたいものを`${key}`としておく。プログラムの方では、辞書に置き換えたい値を格納しておき、`safe_substitute()`を呼ぶ。`safe_substitute`は、テンプレート中にあって、辞書に無いキーワードを適切に処理してくれる。
+
+```python
+dic['key']='value'
+with open(template_file, encoding='utf-8', mode='r') as f:
+    template = Template(f.read())
+    print(template.safe_substitute(dic))
+```
+
 
 ### Unicodeについて
 
