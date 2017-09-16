@@ -36,7 +36,6 @@ Excelファイルを扱うライブラリ。`pip3 install openpyxl`で入る。P
 
 * Workbookの新規作成:`wb=openpyxl.Workbook()`
 * Workbookの読み込み:`wb=openpyxl.load_workbook(filename)`
-* Workbookのストリームからの読み出し:
 * Workbookの保存:`wb.save('filename')`
 * Worksheetの指定:`ws=wb.active`
 * セルの読み込み:`a=ws['A1].value`
@@ -111,6 +110,23 @@ dic['key']='value'
 with open(template_file, encoding='utf-8', mode='r') as f:
     template = Template(f.read())
     print(template.safe_substitute(dic))
+```
+
+### ファイルのダウンロードさせる
+
+Excelを生成したらそれをダウンロードさせる。Excelの MIME type は `application/vnd.ms-excel`なので、`Content-type: text/html`としていたところを `Content-type: application/vnd.ms-excel`とすれば良い。
+
+しかし、これだけれだと、ダウンロードしたファイル名が aaa.cgi のようになってしまい、Windows のエクスプローラでダブルクリックして開けない。そうにう時は、`Content-Deposition: `ヘッダを使えば、ダウンロードするファイル名(少なくとも拡張子)を付けることができる。
+
+ここで、Pythonの場合、print は自動で改行することを忘れてはならない。これを忘れて次のようにすると駄目だ。
+```
+print 'Content-type: application/vnd.ms-excel\n'
+print 'Content-Deposition: attach: filename=aaa.xls\n\n'
+```
+自動で出力される改行を考慮して、つぎのようにしなければならない。
+```
+print 'Content-type: application/vnd.ms-excel'
+print 'Content-Deposition: attach: filename=aaa.xls\n'
 ```
 
 
