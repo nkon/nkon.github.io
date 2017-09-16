@@ -119,12 +119,12 @@ Excelを生成したらそれをダウンロードさせる。Excelの MIME type
 しかし、これだけれだと、ダウンロードしたファイル名が aaa.cgi のようになってしまい、Windows のエクスプローラでダブルクリックして開けない。そうにう時は、`Content-Deposition: `ヘッダを使えば、ダウンロードするファイル名(少なくとも拡張子)を付けることができる。
 
 ここで、Pythonの場合、print は自動で改行することを忘れてはならない。これを忘れて次のようにすると駄目だ。
-```
+```python
 print 'Content-type: application/vnd.ms-excel\n'
 print 'Content-Deposition: attach: filename=aaa.xls\n\n'
 ```
 自動で出力される改行を考慮して、つぎのようにしなければならない。
-```
+```python
 print 'Content-type: application/vnd.ms-excel'
 print 'Content-Deposition: attach: filename=aaa.xls\n'
 ```
