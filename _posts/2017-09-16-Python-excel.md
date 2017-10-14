@@ -42,7 +42,6 @@ Excelファイルを扱うライブラリ。`pip3 install openpyxl`で入る。P
 * セルの書き込み:`ws['B2'].value='Hello World'`
 * セルの書き込み2:`ws.cell(row=1,column=3).value='Hello World'`
 
-
 ### `csv`
 
 CSVファイルを扱うライブラリ。Excelのデータをテキストでやり取りするときには、いまだにCSVがよく使われる。CSVは、コンマやダブルクォーテーションのような可視文字を区切りに使うので、パースがややこしい。個人的にはTSV(タブ区切り)のほうがいいと思うのだが。
@@ -76,9 +75,11 @@ WindowsでもLinuxでも動作するとなると、ファイルを指定する�
 Pythonではライブラリのディレクトリをパッケージとして扱うためには、そのディレクトリの中に`__init__.py`というファイル(からで良い)を作っておく必要がある。そして、プロジェクトのトップディレクトリを`sys.path`に`append`しておく。そうすれば、トップディレクトリからの相対パスで、システムのモジュールと同様な感じで`import`することができる。
 
 トップディレクトリの`index.cgi`の場合
+
 ```python
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 ```
+
 `sys/`ディレクトリの中のライブラリファイルの場合
 
 ```python
@@ -90,7 +91,6 @@ sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)),os.path.
 自分ひとりが使うツールの場合は、Python スクリプトをコマンドプロンプトから使えば良い。しかし職場の関係者全員に、Python をインストールしてコマンドラインツールを使わせるのは難しい。CGIとして開発サーバで動かす方法、(PyQtなどで)GUIを付けて(cx_Freezeなどで)Windows実行形式にする方法などが考えられる。現時点で仕様が固まっていないので、アップデートが容易な前者の方法を取る。
 
 Windows上でコマンドラインツールとして機能を開発し、そのスクリプトを、CGI側ではライブラリとして呼び出すようにする。Windows上からGitサーバにpushし、Linuxサーバでpullする。ファイルパーミッションをセットするスクリプトを走らせれば、CGIが実行可能だ。
-
 
 標準ライブラリに `cgi`モジュールがある。
 
@@ -116,19 +116,21 @@ with open(template_file, encoding='utf-8', mode='r') as f:
 
 Excelを生成したらそれをダウンロードさせる。Excelの MIME type は `application/vnd.ms-excel`なので、`Content-type: text/html`としていたところを `Content-type: application/vnd.ms-excel`とすれば良い。
 
-しかし、これだけれだと、ダウンロードしたファイル名が aaa.cgi のようになってしまい、Windows のエクスプローラでダブルクリックして開けない。そうにう時は、`Content-Deposition: `ヘッダを使えば、ダウンロードするファイル名(少なくとも拡張子)を付けることができる。
+しかし、これだけれだと、ダウンロードしたファイル名が aaa.cgi のようになってしまい、Windows のエクスプローラでダブルクリックして開けない。そうにう時は、`Content-Deposition:`ヘッダを使えば、ダウンロードするファイル名(少なくとも拡張子)を付けることができる。
 
 ここで、Pythonの場合、print は自動で改行することを忘れてはならない。これを忘れて次のようにすると駄目だ。
+
 ```python
 print 'Content-type: application/vnd.ms-excel\n'
 print 'Content-Deposition: attach: filename=aaa.xls\n\n'
 ```
+
 自動で出力される改行を考慮して、つぎのようにしなければならない。
+
 ```python
 print 'Content-type: application/vnd.ms-excel'
 print 'Content-Deposition: attach: filename=aaa.xls\n'
 ```
-
 
 ### Unicodeについて
 
@@ -140,7 +142,6 @@ Python3はUnicodeにネイティブに対応している。Windows上では、�
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 ```
 
-
 ### テスト
 
 Pythonには標準でユニットテストの機能がある。`test/`以下にテストコードをおいて、`src/`以下のユーザコードをテストするには、`./`を基準として`src/`を読み込むようにモジュール検索パスを指定する。
@@ -148,6 +149,7 @@ Pythonには標準でユニットテストの機能がある。`test/`以下に�
 そのうえで、テスト対象の識別子をすべてimportすればよい。
 
 unittestの書き方は
+
 ```python
 import unittest
 
@@ -163,8 +165,6 @@ class Test_module_under_test(unittest, TestCase):
 
 テストディスカバリーのやり方は次のとおり。対象ディレクトリ以下のUnitTestを拾い集めて、全て実行してくれる。
 
-```
+```bash
 python -m unittest discover
 ```
-
-
