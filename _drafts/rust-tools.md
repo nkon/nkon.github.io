@@ -32,7 +32,7 @@ rust で標準的に使われるツールや便利なツールの使い方を、
 
 ### ビルド系
 
-* `cargo new hogehoge --bin`: hogehogeというbin crate を作成する。デフォルトで`main`が用意されているので`cargo run`でHelloアプリが走る。また、デフォルトでgitリポジトリも設定されている。github.comにアップするときは`git remote add origin https://github.com/your-name/project-name.git`とリモートに`origin`を追加する。
+* `cargo new hogehoge --bin`: hogehogeというbin crate を作成する。デフォルトで`main`が用意されているので`cargo run`でHelloアプリが走る。また、デフォルトでGitリポジトリも設定されている。GitHub.comにアップするときは`git remote add origin https://github.com/your-name/project-name.git`とリモートに`origin`を追加する。
 * `cargo new hogehoge`: hogehogeというlib crateを作成する。デフォルトでテストが用意されているので、`cargo test`でテストが走る。
 * `cargo build`:ビルドする。結果は`target/`ディレクトリに生成される。
 * `cargo clean`:コンパイラ生成物を消去する。
@@ -53,8 +53,6 @@ rust で標準的に使われるツールや便利なツールの使い方を、
 標準の cargo サブコマンドではなく、`cargo install cargo-update`として`cargo-update`パッケージをインストールすると`install-update`サブコマンドが使えるようになる。
 
 これらの追加のサブコマンドは、`~/.cargo/bin/cargo-install-update`のようなパスとファイル名　にインストールされる。
-
-* `cargo modules`: `cargo install cargo-modules`とすると使える。モジュールの依存性や可視性を表示してくれる。慣れないとrustのモジュール指定はややこしいので、このツールがあると助かる。
 
 #### Windows + PowerShell で Path を追加する
 
