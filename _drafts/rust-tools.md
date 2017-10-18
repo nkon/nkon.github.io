@@ -31,7 +31,6 @@ rust で標準的に使われるツールや便利なツールの使い方を、
 標準のビルドツール兼パッケージ管理ツール。
 
 ### ビルド系
-
 * `cargo new hogehoge --bin`: hogehogeというbin crate を作成する。デフォルトで`main`が用意されているので`cargo run`でHelloアプリが走る。また、デフォルトでGitリポジトリも設定されている。GitHub.comにアップするときは`git remote add origin https://github.com/your-name/project-name.git`とリモートに`origin`を追加する。
 * `cargo new hogehoge`: hogehogeというlib crateを作成する。デフォルトでテストが用意されているので、`cargo test`でテストが走る。
 * `cargo build`:ビルドする。結果は`target/`ディレクトリに生成される。
