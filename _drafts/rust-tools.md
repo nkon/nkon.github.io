@@ -23,9 +23,8 @@ rust で標準的に使われるツールや便利なツールの使い方を、
 * `rustup install nightly`: nigytly ツールチェインをインストールする。
 * `rustup install nightly-2017-10-17`: 特定の日付の nigytly ツールチェインをインストールする。
 * `rustup override set nightly`: そのディレクトリで使用するツールチェインを nightly にする。この情報は `~/.rustup/settings.toml`に保存されている。
-    それ以外の方法として、そのディレクトリに`rust-toolchain`ファイルを置いて、`nightly`と書いておいても良い。
+    それ以外の方法として、そのディレクトリに`rust-toolchain`ファイルを置いて、`nightly`と書いておいても nightly ツールチェインを使える。
 * `rustup target add aarch64-unknown-linux-gnu`: 標準でサポートされているクロスコンパイルツールチェインをインストールする。サポートされているツールチェインは `rustup target list`で表示される。`gnu`と対比して`musl`というキーワードが出てくる。Linux上で動く、静的リンクに最適化したライブラリだ。気が合うのか、rustでは熱心にサポートされている。see http://www.musl-libc.org/ 。
-
 
 ## cargo
 
@@ -33,26 +32,42 @@ rust で標準的に使われるツールや便利なツールの使い方を、
 
 ### ビルド系
 
-* `cargo new hogehoge --bin`: 
-* `cargo new hogehoge`:
-* `cargo build`:
-* `cargo clean`:
-* `cargo run`:
-* `cargo update`:
-* `cargo test`:
-* `cargo doc`:
-
+* `cargo new hogehoge --bin`: hogehogeというbin crate を作成する。デフォルトで`main`が用意されているので`cargo run`でHelloアプリが走る。また、デフォルトでgitリポジトリも設定されている。github.comにアップするときは`git remote add origin https://github.com/your-name/project-name.git`とリモートに`origin`を追加する。
+* `cargo new hogehoge`: hogehogeというlib crateを作成する。デフォルトでテストが用意されているので、`cargo test`でテストが走る。
+* `cargo build`:ビルドする。結果は`target/`ディレクトリに生成される。
+* `cargo clean`:コンパイラ生成物を消去する。
+* `cargo run`:binクレートをビルドし実行する。
+* `cargo update`:今のクレートが依存しているパッケージを、互換性がある範囲で更新する。
+* `cargo test`:テストする。`#[test]`属性が付いているユニットテスト関数、`tests/`ディレクトリにある結合テスト、コメント中に記載されている doc-test が走る。
+* `cargo doc`:`doc/`ディレクトリにドキュメントを生成する。`use`しているクレートのドキュメントも生成される。
+* `cargo install`: そのクレートをビルドして`~/.cargo/bin/`にインストールする。
+* `cargo install hogehoge`: hogehoge を crates.io からダウンロードしてインストールする。これを利用して、次で説明する「ツール系」サブコマンドが実現されている。
 
 ### ツール系
 
-* `cargo --list`:
-*
+* `cargo --list`: 現在インストールされている、cargo サブコマンドを表示する。
+* `cargo install`: パッケージをインストールする。
+* `cargo install-update -a`: インストールされているパッケージをアップデートする。
+* `cargo install-update -al`: インストールされているパッケージをアップデートの必要性を表示する。
 
+標準の cargo サブコマンドではなく、`cargo install cargo-update`として`cargo-update`パッケージをインストールすると`install-update`サブコマンドが使えるようになる。
+
+これらの追加のサブコマンドは、`~/.cargo/bin/cargo-install-update`のようなパスとファイル名　にインストールされる。
+
+* `cargo modules`: `cargo install cargo-modules`とすると使える。モジュールの依存性や可視性を表示してくれる。慣れないとrustのモジュール指定はややこしいので、このツールがあると助かる。
+
+#### Windows + PowerShell で Path を追加する
+
+Windows 環境で`cargo install cargo-update`すると`cargo-install-update`のビルドの途中で「`cmake`が無い」というエラーで止まる。chocolaty を使っていれば`cinst cmake`でcmakeがインストールできる。しかし、インストールしただけでは、`cmake.exe`にPathが通っていない。
+
+Windows PowerShell では、環境変数は `env:`ドライブにあるので、環境変数を参照するためには`dir env:`とする。
+Pathだけを見やすく参照するためには`$Env:Path.split(";")`としても良い。
+追加するためには、文字列の追加のように`$Env:Path += ";C:\Program Files\CMake\bin"`とする。
 
 
 ## xargo
 
-クロスコンパイル用のビルドツール。`cargo`のラッパーである。
+クロスコンパイル用のビルドツール。`cargo`のラッパーであり、特記されること以外は cargo と同じ動作をする。
 
 ## Visual Studio Code
 
