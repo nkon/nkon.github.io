@@ -64,11 +64,16 @@ Pathだけを見やすく参照するためには`$Env:Path.split(";")`として
 
 ## xargo
 
-クロスコンパイル用のビルドツール。`cargo`のラッパーであり、特記されること以外は cargo と同じ動作をする。
+クロスコンパイル用のビルドツール。`cargo`のラッパーであり、特記されること以外は cargo と同じ動作をする。`no_std`環境で動作するので、`core`ライブラリをダウンロードして、指定したターゲットに向けてビルドして、リンクしてくれる。
+
+`cargo install xargo`でインストールされる。
+
+* `xargo build --target thumbv6m-none-eabi`:ターゲットのアーキテクチャを指定してビルドする。
+
 
 ## Visual Studio Code
 
-* 
+最近の環境では、`rust-lang`製のRust(rls)拡張をいれておけば、rls(Rust Language Server)のインストールまで自動でやってくれる。
 
 ## gdb
 
