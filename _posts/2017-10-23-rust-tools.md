@@ -23,7 +23,7 @@ rust で標準的に使われるツールや便利なツールの使い方を、
 * `rustup install nightly`: nigytly ツールチェインをインストールする。
 * `rustup install nightly-2017-10-17`: 特定の日付の nigytly ツールチェインをインストールする。
 * `rustup override set nightly`: そのディレクトリで使用するツールチェインを nightly にする。この情報は `~/.rustup/settings.toml`に保存されている。
-    それ以外の方法として、そのディレクトリに`rust-toolchain`ファイルを置いて、`nightly`と書いておいても nightly ツールチェインを使える。
+    それ以外の方法として、そのディレクトリに`rust-toolchain`というファイルを置いて、`nightly`と書いておいても nightly ツールチェインを使える。
 * `rustup target add aarch64-unknown-linux-gnu`: 標準でサポートされているクロスコンパイルツールチェインをインストールする。サポートされているツールチェインは `rustup target list`で表示される。`gnu`と対比して`musl`というキーワードが出てくる。Linux上で動く、静的リンクに最適化したライブラリだ。気が合うのか、rustでは熱心にサポートされている。see http://www.musl-libc.org/ 。
 
 ## cargo
@@ -49,9 +49,15 @@ rust で標準的に使われるツールや便利なツールの使い方を、
 * `cargo install-update -a`: インストールされているパッケージをアップデートする。
 * `cargo install-update -al`: インストールされているパッケージをアップデートの必要性を表示する。
 
-標準の cargo サブコマンドではなく、`cargo install cargo-update`として`cargo-update`パッケージをインストールすると`install-update`サブコマンドが使えるようになる。
+標準の cargo サブコマンドではなく、`cargo install cargo-update`とやって`cargo-update`パッケージをインストールすると`install-update`サブコマンドが使えるようになる。
 
 これらの追加のサブコマンドは、`~/.cargo/bin/cargo-install-update`のようなパスとファイル名　にインストールされる。
+
+* `cargo tree`: `cargo-tree` サブコマンドをインストールする。クレートの依存関係を表示する。
+* `cargo modules`: `cargo-modules` サブコマンドをインストールする。モジュールの依存関係を表示する。
+
+いずれも、nightly コンパイラを要求する。`rustup toolchain nightly`で、nightly 環境を有効にしておく。`.cargo/config`などでクロスターゲットが指定されているディレクトリでインストールしようとすると、そちらの指定が優先されて正しくビルドされないので、通常ディレクトリでインストール作業をしなければならない。
+
 
 #### Windows + PowerShell で Path を追加する
 
@@ -61,6 +67,9 @@ Windows PowerShell では、環境変数は `env:`ドライブにあるので、
 Pathだけを見やすく参照するためには`$Env:Path.split(";")`としても良い。
 追加するためには、文字列の追加のように`$Env:Path += ";C:\Program Files\CMake\bin"`とする。
 
+### zsh 補完
+
+`~/.rustup/toolchains/*/share/zsh/site-functions/_cargo` を取り込むと、zsh で `cargo`の補完が効く。
 
 ## xargo
 
@@ -74,6 +83,4 @@ Pathだけを見やすく参照するためには`$Env:Path.split(";")`として
 ## Visual Studio Code
 
 最近の環境では、`rust-lang`製のRust(rls)拡張をいれておけば、rls(Rust Language Server)のインストールまで自動でやってくれる。
-
-## gdb
 
