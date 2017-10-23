@@ -40,6 +40,9 @@ MIROさんの記事に従ってレジストリを編集し、電源オプショ�
 
 ただし、Bluetooth接続のマウスを使っている場合、マウスを動かすとスリープが解除されてしまう。スリープ前にマウスの電源をOFFにするのを忘れないようにしよう。
 
+* 「カバーを開いたときのアクション」を表示する→`HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Power\PowerSettings\4f971e89-eebd-4455-a8de-9e59040e7347\99ff10e7-23b1-4c07-a9d1-5c3206d741b4`の`Attribute`を`2`にする。
+* 「IO 一体化のタイムアウト」を表示する→`HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Power\PowerSettings\2E601130-5351-4d9d-8E04-252966BAD054\C36F0EB4-2988-4a70-8EEE-0884FC2C2433`の`Attribute`を`2`にする。
+
 ## スリープのコツ
 
 現在の設定でスリープ時の消費電力は17mW。これなら数日は持つ。
