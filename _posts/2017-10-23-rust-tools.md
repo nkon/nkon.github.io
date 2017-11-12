@@ -41,6 +41,7 @@ rust で標準的に使われるツールや便利なツールの使い方を、
 * `cargo doc`:`target/doc/`ディレクトリにドキュメントを生成する。`use`しているクレートのドキュメントも生成される。
 * `cargo install`: そのクレートをビルドして`~/.cargo/bin/`にインストールする。
 * `cargo install hogehoge`: hogehoge を crates.io からダウンロードしてインストールする。これを利用して、次で説明する「ツール系」サブコマンドが実現されている。
+* `cargo metadata --no-deps`: クレートの構成情報を JSON 形式で出力する。依存関係の情報を更新しないために `--no-deps`をつけると良い。JSON の整形表示や抽出は `jq`が便利。
 
 ### ツール系
 
