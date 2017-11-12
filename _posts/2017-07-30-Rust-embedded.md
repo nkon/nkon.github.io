@@ -824,7 +824,7 @@ openocd -f board/st_nucleo_f103rb.cfg -c "init" -c "reset init" -c "stm32f1x mas
 
 ## CubeMXを使う
 
-組み込み用マイコンはいろいろな周辺機器を内蔵していて「ペリフェラル」と呼ばれる。どのようなペリフェラルを内蔵しているかはマイコンごとの特徴であり、チップ毎に異なる。データシートを見ながらアプリごとに設定をレジスタにか来ま無くてはならない。
+組み込み用マイコンはいろいろな周辺機器を内蔵していて「ペリフェラル」と呼ばれる。どのようなペリフェラルを内蔵しているかはマイコンごとの特徴であり、チップ毎に異なる。データシートを見ながらアプリごとに設定をレジスタに書き込まなくてはならない。
 
 CubeMX は、GUIでピン配置やペリフェラルの設定をして、そういったコードを生成してくれるツールだ。低レベルデバイスドライバ(Hardware Abstraction Layer:HAL)ライブラリも同梱されている。CubeMXはST社のツールだが、他のメーカーでも似たようなツールがあることが多い。
 
@@ -1343,7 +1343,7 @@ fn main() {
     println!("cargo:rerun-if-changed=build.rs");
 }
 ```
-`xargo build`すればビルドが走り、`target/thumbv7m-none-eabi/debug/cubemx`をやきこめば、やっぱりLチカする。
+`xargo build`すればビルドが走り、`target/thumbv7m-none-eabi/debug/cubemx`を焼き込めば、やっぱりLチカする。
 
 
 ## gdb
