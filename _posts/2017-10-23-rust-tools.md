@@ -62,7 +62,6 @@ rust で標準的に使われるツールや便利なツールの使い方を、
 * `cargo expand`: `cargo-expand` サブコマンドをインストールする。マクロを展開して表示する。`cc -E`のようなもの。
 
 
-
 #### Windows + PowerShell で Path を追加する
 
 Windows 環境で`cargo install cargo-update`すると`cargo-install-update`のビルドの途中で「`cmake`が無い」というエラーで止まる。chocolaty を使っていれば`cinst cmake`でcmakeがインストールできる。しかし、インストールしただけでは、`cmake.exe`にPathが通っていない。
