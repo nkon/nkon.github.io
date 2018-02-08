@@ -80,13 +80,13 @@ rustはバックエンドとしてLLVMを使っており、LLVMのリンカは(�
 
 また、実際にコンパイラが使用するセグメント名(例えば`.text`や`.rodata`など)と、`memory.x`に記載した`FLASH`などの領域名の対応や初期化処理は`cortex-m-rt`クレートで行われるので、`exterm crate cortex_m_rt;`としてリンクしなければならない。
 
-## example/hello.rs
+## examples/hello.rs
 
 `cortex-m-quikstart`にある`examples/hello.rs`をビルドしてみる。
 ```
 $ xargo build --example hello
 ```
-`--example` は `examples/`ディレクトリにあるファイルをbin crate としてビルドするオプション。
+`--example` は `src/examples/`ディレクトリにあるファイルをbin crate としてビルドするオプション。
 
 エラーが出た。
 ```
@@ -229,6 +229,8 @@ fn main() {
 $ xargo build --bin blinky
 ```
 `src/bin/blinky.rs`をバイナリークレートとしてビルドする。
+
+通常のbin crateは`src/main.rs`を起点にモジュールが読み込まれるが、`--bin` オプションは `src/bin/`にあるファイルを起点にbin crateをビルドする。
 * 実行
 ```
 $ xargo run --bin blinky
