@@ -2,7 +2,7 @@
 layout: post
 title: ようこそ Japaric Park へ
 category: blog
-tags: rust embeddedではなく
+tags: rust embedded
 ---
 
 Rust embedded 界の第一人者である japaric さんの提唱する RTFM 及び cortex-rt などのフレームワークについての自習記録。日本語の記事が少なかったし、私自身は STM32CubeMXとの連携を模索していて方向が違っていたのであまりトレースしていなかった。しかし、[@tatsuya6502さんの良記事](https://qiita.com/tatsuya6502/items/7d8aaf3792bdb5b66f93#%E3%83%AA%E3%82%BD%E3%83%BC%E3%82%B9%E3%82%84%E3%82%BF%E3%82%B9%E3%82%AF%E3%81%AE%E5%AE%9A%E7%BE%A9)を見かけ、改めて興味をもってやってみた。
@@ -11,6 +11,24 @@ Rust embedded 界の第一人者である japaric さんの提唱する RTFM 及
 
 
 ---
+
+* 必要な設定：おもに組み込みの基礎とビルド関係の話題
+    + ターゲットの設定
+    + `build.rs`
+    + メモリマップの指定
+* `examples/hello.rs`：`cortex-m`クレートの話、セミホスティングやgdbなどの便利な小ネタ
+    + 逐行解説
+    + GDBの設定とgdb-dashboard のインストール
+    + gdbで実行
+* `bin/blinky.rs`：デバイスクレートの話
+    + デバイスサポートクレートの追加
+    + 単体での実行
+    + 逐行解説
+* `bin/rtfm.rs`：RTFMフレームワークの話
+    + セットアップ
+    + 写経
+    + 逐行解説
+* 感想
 
 ---
 
@@ -449,7 +467,7 @@ pub fn rust_begin_unwind() {
 }
 ```
 
-## 逐行解説
+### 逐行解説
 
 ```
 #![no_std]
