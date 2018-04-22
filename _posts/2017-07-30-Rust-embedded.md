@@ -35,7 +35,7 @@ Target
 $ cargo install xargo
 ```
 
-`xargo`の使い方は`cargo@とほとんど同じだ(というか、ラッパーである)。新しいプロジェクトを作成するには次のようにすればよい。
+`xargo`の使い方は`cargo`とほとんど同じだ(というか、ラッパーである)。新しいプロジェクトを作成するには次のようにすればよい。
 ```
 $ xargo new stm32f1_blinky --bin
 $ cd stm32f1_blinky
@@ -49,13 +49,19 @@ $ cd stm32f1_blinky
 $ rustup install nightly
 ```
 
-そして、このディレクトリで nightly を使うようにする。ただし、この設定はディレクトリローカルではなく、`~/.rustup/settings.toml`に書かれることに注意しよう。
+そして、このディレクトリで nightly を使うようにする。方法は2つある。
+
+1. rustup を使う方法。
+
+この設定はディレクトリローカルではなく、`~/.rustup/settings.toml`に書かれることに注意しよう。
 
 ```
 $ rustup override set nightly
 ```
 
-次のように、`thumbv7m-none-eabi`がサポートされていることがわかる。
+2. または、プロジェクトルートに`rust-toolchain`というファイルを作成し`nightly`と書いておいても良い。
+
+次のように、nightly では `thumbv7m-none-eabi`がサポートされていることがわかる。
 
 ```
 $ rustc --version          
@@ -1414,7 +1420,7 @@ cubemx::rust_main () at src/main.rs:20
 
 ### gdb-dashboard
 
-gdbをより使いやすくするのに gdb-dashboard([https://github.com/cyrus-and/gdb-dashboard](https://github.com/cyrus-and/gdb-dashboard)) というのがある。書かれているように、.gdbinit に設定を保存しておいて、soucece .gdbinit で読み込むことによって、多彩な情報をカラフルに表示するのだ。シンタックスハイライトで #???が見にくい時は、.gdbinitで、syntax_hiliging が 'vim'になっているところを''にすれば良い。
+gdbをより使いやすくするのに gdb-dashboard([https://github.com/cyrus-and/gdb-dashboard](https://github.com/cyrus-and/gdb-dashboard)) というのがある。書かれているように、.gdbinit に設定を保存しておいて、soucece .gdbinit で読み込むことによって、多彩な情報をカラフルに表示するのだ。シンタックスハイライトで #xxxが見にくい時は、.gdbinitで、syntax_hiliging が 'vim'になっているところを''にすれば良い。
 
 <div align="center"><img src="/images/2017-07-30-gdb-dashboard.png" alt="cubemx"></div>
 
