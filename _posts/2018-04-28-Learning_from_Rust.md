@@ -1,5 +1,5 @@
 ---
 layout: slide
 title: Learning from Rust
-slide: test_slide.md
+slide: Learning_from_Rust_slide.md
 ---
