@@ -1,4 +1,6 @@
 
+class: center, middle
+
 # Rust から学ぶ Good Practice
 
 ---
@@ -68,6 +70,8 @@
 * リポジトリ
 
 ---
+
+class: two_column
 
 # hohoho
 
