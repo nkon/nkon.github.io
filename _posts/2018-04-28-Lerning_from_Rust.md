@@ -1,5 +1,5 @@
 ---
 layout: slide
-title: Lerning from Rust
-source: /_includes/Leaning_from_Rust_slide.md
+title: Learning from Rust
+slide: Learning_from_Rust_slide.md
 ---
