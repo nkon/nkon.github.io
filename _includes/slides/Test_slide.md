@@ -379,3 +379,30 @@ mod network;
 * モジュール内は、デフォルトで不可視、`pub`を付けたものだけ公開 → C でも `static`キーワードを活用しよう
 
 ]
+
+
+---
+
+# Collection
+
+[TRPL-2nd](https://y-yu.github.io/trpl-2nd-pdf/book.pdf): p140
+
+.left-column[
+
+[https://twitter.com/yoh2_sdj/status/990131154018709504](https://twitter.com/yoh2_sdj/status/990131154018709504)
+
+![990131154018709504](images/990131154018709504.png)
+
+]
+
+.right-column[
+* 何でもかんでも、配列＋`for`ではない。
+* Collection ライブラリを作成し、使い回して活用しよう。
+    + `Queue`や`List`はあるが
+    + `Array`、`Set`などもライブラリ化して独自実装はなるべくしない
+        - 例) 合計が欲しい時も、for でまわして合計するのではなく、sum などのメソッドを使う
+    + `Hash`などの有用なコレクションの利用を促進する
+    + 信頼できるコードを活用し、しょうもないバグの混入を防ぐ
+
+]
+
