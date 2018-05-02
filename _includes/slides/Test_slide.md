@@ -5,13 +5,10 @@ class: center, middle
 
 ---
 
-# Agenda
-
-1. Introduction
-2. Deep-dive
-3. ...
-
-[NOTE]: Note that you need active internet connection to access remark.js script file
+* 社内勉強会用に考えていたネタだが、機会がなくなったので公開する
+* 内容は初心者向け
+* ツッコミどころ多数
+* 後半、力尽きている
 
 ---
 
