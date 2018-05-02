@@ -5,7 +5,7 @@ class: center, middle
 
 ---
 
-# Descriminer
+# Disclaimer
 
 * 社内勉強会用に考えていたネタだが、機会がなくなったので公開する
 * 内容は初心者向け
