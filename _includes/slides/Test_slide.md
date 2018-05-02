@@ -128,3 +128,81 @@ $ rustup update
 * `rustfmt`という整形ツールがオフィシャルから提供→スタイルの統一、not宗教戦争
 
 ]
+
+---
+
+# Project
+
+[TRPL-2nd](https://y-yu.github.io/trpl-2nd-pdf/book.pdf): p14
+
+.left-column[
+### プロジェクトの作成
+```
+$ cargo new hello_cargo --bin
+```
+### プロジェクトのビルド
+```
+$ cd hello_cargo
+$ cargo build
+$ tree -a
+.
+├── .git      # 略
+├── .gitignore
+├── Cargo.lock
+├── Cargo.toml
+├── src
+│   └── main.rs
+└── target
+    └── debug
+        ├── hello_cargo
+        略
+```
+]
+.right-column[
+
+* Gitのリポジトリ、`.gitignore`の設定もなされる→VCSはGitがデファクト
+* ソースは`src/`、生成物は`target/`→ビルドは別ディレクトリ
+* 自前のビルドツールを持ち、`make`を使わない→`make`は闇、習得が難しい
+
+]
+
+---
+
+# 変数
+
+[TRPL-2nd](https://y-yu.github.io/trpl-2nd-pdf/book.pdf): p14
+
+.left-column[
+```rust
+let mut guess = String::new();
+```
+]
+.right-column[
+
+* 変数は、デフォルトで不変→Cなら`const`を付ける
+* 型推定→Cでも型をきちんと区別して使う
+
+]
+
+
+---
+
+# IOエラーの取り扱い
+
+[TRPL-2nd](https://y-yu.github.io/trpl-2nd-pdf/book.pdf): p22
+
+.left-column[
+```rust
+    io::stdin().read_line(&mut guess).expect("Failed to read line");
+```
+]
+
+.right-column[
+`Result<T,E>`を返す：Cでは無い概念
+
+* エラー処理の強要(`Result`から`<T>`をとり出さなければならない)→Cではエラー返値を無視できるが、コードレビューでカバー
+* 標準のエラー処理(`expect`)を用意して手間を省く→エラー処理は個別で書かずにライブラリ化して使い回す
+* 呼び出し側でメモリ確保(`&mut guess`)→Cでもそうする。内部で確保したメモリを返すとリークする
+
+]
+
