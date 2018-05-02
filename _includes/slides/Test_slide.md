@@ -667,3 +667,19 @@ Hello world!
 * `<textarea id="source">`の中に Markdown を書くと、remarkjs がスライドにレンダリングする。
 * そこに、Liquid 構文で、スライドの元ネタを読み込む。
 * 上は記号が全角になっているので注意。
+
+---
+# Appendix: Github-pages, jekyll でスライドを表示させる
+
+`posts/YYYY-MM-DD-my_slide.md`
+```
+---
+layout: slide
+title: Title of the Slide
+slide: my_slide.md
+---
+```
+
+* Front matter のみ。
+* `layout` で `_layout/slide.html`を指定する。
+* `slide` で `_includes/slides/my_slide.html`を指定する→`slide.html`の中の`{% include slides/{{ page.slide }} %}`で読み込まれる。
