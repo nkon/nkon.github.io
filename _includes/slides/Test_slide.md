@@ -206,3 +206,71 @@ let mut guess = String::new();
 
 ]
 
+---
+
+# 外部ライブラリ
+
+[TRPL-2nd](https://y-yu.github.io/trpl-2nd-pdf/book.pdf): p25
+
+.left-column[
+
+`Cargo.toml`
+```
+[dependencies]
+rand = "0.3.14"
+```
+
+`main.rs`
+```rust
+extern crate rand;
+use rand::Rng;
+let secret_number = rand::thread_rng().gen_range(1, 101);
+```
+
+]
+
+.right-column[
+
+* ライブラリのバージョンは[SemVer](https://semver.org/lang/ja/)を使う→互換性を判定するには必要にして十分
+    + SemVerはライブラリのバージョンには適するが、製品のバージョンに適するかどうかは個別に検討
+* `cargo`が creats.io からダウンロードしてビルドする→パッケージマネージャも兼ねる
+* `Cargo.lock`でバージョンをロックして、`cargo update`でSemVer互換性を考慮してライブラリをバージョンアップする
+* `extern crate rand;`で外部パッケージを宣言し、`use rand::Rng;`で名前空間を導入し、`rand::thread_rng().gen_range(1, 101);`でライブラリ関数を使う→名前空間はCには無い。APIの命名で工夫するしかない
+* `cargo doc --open`でライブラリドキュメントが見れる→コードとドキュメントの一体化、乖離の予防
+
+]
+
+---
+
+# `match`での比較
+
+[TRPL-2nd](https://y-yu.github.io/trpl-2nd-pdf/book.pdf): p29
+
+.left-column[
+```rust
+match guess.cmp(&secret_number) {
+    Ordering::Less => println!("Too small!"),
+    Ordering::Greater => println!("Too big!"),
+    Ordering::Equal => println!("You win!"),
+}
+```
+]
+
+.right-column[
+
+* 漏れなく比較しなければコンパイルエラー→MISRA-Cなどのツールでチェック
+
+]
+
+
+---
+
+# グローバル変数
+
+[TRPL-2nd](https://y-yu.github.io/trpl-2nd-pdf/book.pdf): p41
+
+* 変数：ローカルスコープ、デフォルトで immutable
+* 定数：ローカルまたはグローバルスコープ(`'static` なライフタイム)
+* グローバル変数：Rustでは`unsafe`として扱われる→C でも基本的にグローバル変数は使わない。どこかで勝手に変更されるかもしれない変数はとても危険！
+
+---
