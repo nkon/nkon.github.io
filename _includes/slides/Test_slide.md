@@ -299,3 +299,83 @@ match guess.cmp(&secret_number) {
 * 特殊型を活用する、なんでも `int`にせずに、コンパイラの型チェック機能を活かす
 
 ]
+
+
+---
+
+# 関数
+
+[TRPL-2nd](https://y-yu.github.io/trpl-2nd-pdf/book.pdf): p49
+
+
+.left-column[
+
+```rust
+fn main() {
+    println!("Hello, world!");
+    another_function();
+}
+
+fn another_function() {
+    println!("Another function.");
+}
+
+fn five() {
+    5
+}
+```
+
+]
+
+.right-column[
+
+* 関数宣言のキーワードは`fn`→ (明言無いが)予約後は短縮形、(ユーザ)識別子は短縮しない、で衝突を避ける思想 → 短縮後は使わないようにしよう(システムレベルで共通認識が無いとわかりにくい)
+* 関数名は snake_case ← [規約](https://sinkuu.github.io/api-guidelines/naming.html)あり
+    + 他の項目も超参考になる
+* ブロック(枝)の最後の式の値が返り値になる→C でも `return`文よりも後の式を許さない(コンパイラ警告？ )
+
+]
+
+
+---
+
+# 所有権
+
+[TRPL-2nd](https://y-yu.github.io/trpl-2nd-pdf/book.pdf): p66
+
+* とても複雑で重要。Cの感覚で書くと、ほぼ借用チェッカーに引っかかる。
+* Cでも、参照するときに、immutable な参照か mutable な参照かを意識したコードを書こう。← Rustでは、mutable な参照を渡すと「所有権」を手放す。
+* 値を変更するのは誰か？ 意図しない変更、辿れないポインタ、有効でないメモリ領域への参照を防ぐ。
+
+---
+
+# Null安全
+
+[TRPL-2nd](https://y-yu.github.io/trpl-2nd-pdf/book.pdf): p109
+
+* [null安全でない言語は、もはやレガシー言語だ](https://qiita.com/koher/items/e4835bd429b88809ab33)
+* Cでは言語レベルで保証してくれないので、コードレビューなどで確認する。
+    + 人力では限界がある。
+    + test, `assert` も活用しよう。
+
+
+---
+
+# モジュール
+
+[TRPL-2nd](https://y-yu.github.io/trpl-2nd-pdf/book.pdf): p131
+
+.left-column[
+
+```rust
+pub mod client;
+mod network;
+```
+
+]
+
+.right-column[
+
+* モジュール内は、デフォルトで不可視、`pub`を付けたものだけ公開 → C でも `static`キーワードを活用しよう
+
+]
