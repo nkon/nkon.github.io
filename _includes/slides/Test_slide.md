@@ -391,7 +391,7 @@ mod network;
 
 [https://twitter.com/yoh2_sdj/status/990131154018709504](https://twitter.com/yoh2_sdj/status/990131154018709504)
 
-![990131154018709504](images/990131154018709504.png)
+![990131154018709504](/images/990131154018709504.png)
 
 ]
 
