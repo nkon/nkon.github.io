@@ -13,7 +13,7 @@ class: center, middle
 * 後半、力尽きている
 
 ---
-
+ 
 # なぜいろいろなプログラミング言語があるのか？
 
 * プログラム言語は、最終的にマシン語となり実行される
@@ -151,7 +151,7 @@ $ tree -a
 ├── Cargo.lock
 ├── Cargo.toml
 ├── src
-│   └── main.rs
+│  └── main.rs
 └── target
     └── debug
         ├── hello_cargo
@@ -235,7 +235,7 @@ let secret_number = rand::thread_rng().gen_range(1, 101);
     + SemVerはライブラリのバージョンには適するが、製品のバージョンに適するかどうかは個別に検討
 * `cargo`が creats.io からダウンロードしてビルドする→パッケージマネージャも兼ねる
 * `Cargo.lock`でバージョンをロックして、`cargo update`でSemVer互換性を考慮してライブラリをバージョンアップする
-* `extern crate rand;`で外部パッケージを宣言し、`use rand::Rng;`で名前空間を導入し、`rand::thread_rng().gen_range(1, 101);`でライブラリ関数を使う→名前空間はCには無い。APIの命名で工夫するしかない
+* `extern crate rand;`で外部パッケージを宣言し、`use rand::Rng;`で名前空間を導入し、`rand::thread_rng().gen_range(1, 101);`でライブラリ関数を使う→CではAPIの命名で工夫
 * `cargo doc --open`でライブラリドキュメントが見れる→コードとドキュメントの一体化、乖離の予防
 
 ]
@@ -299,6 +299,7 @@ match guess.cmp(&secret_number) {
 * 特殊型を活用する、なんでも `int`にせずに、コンパイラの型チェック機能を活かす
 
 ]
+
 
 ---
 
@@ -379,6 +380,7 @@ mod network;
 
 ]
 
+
 ---
 
 # Collection
@@ -389,7 +391,7 @@ mod network;
 
 [https://twitter.com/yoh2_sdj/status/990131154018709504](https://twitter.com/yoh2_sdj/status/990131154018709504)
 
-![990131154018709504](images/990131154018709504.png)
+![990131154018709504](/images/990131154018709504.png)
 
 ]
 
@@ -403,6 +405,7 @@ mod network;
     + 信頼できるコードを活用し、しょうもないバグの混入を防ぐ
 
 ]
+
 
 ---
 
@@ -546,7 +549,7 @@ tx.send(()).unwrap();
 
 .right-column[
 
-* RTOSには、共有領域の排他制御のために mutex や、Rustのチャネルの代わりに message_queue があることが多い
+* RTOSがツールを用意してくれる
 * message_queue が使えるときは mutex よりも安全
 * queue に入れるデータの所有権や二重開放は(現状は)人間が注意する
 
@@ -592,6 +595,7 @@ osEvent event = osMessageGet(message_q_id, osWaitForever);
 
 ]
 
+
 ---
 
 # Appendix: Github-pages, jekyll でスライドを表示させる
@@ -611,11 +615,14 @@ username.github.io/
 ```
 
 
+
 ---
 
 # Appendix: Github-pages, jekyll でスライドを表示させる
 
 `_includes/slides/my_slide.md`
+.div-small[
+
 ```
 # My Awesome Presentation
 
@@ -635,22 +642,25 @@ username.github.io/
 
 Hello world!
 ```
+]
 
 * Front matter は不要。
 * `---`がスライド区切り。
 * 使えるアイテムは [https://github.com/gnab/remark/wiki/Using-with-Jekyll](https://github.com/gnab/remark/wiki/Using-with-Jekyll)参照。
 
+
 ---
 # Appendix: Github-pages, jekyll でスライドを表示させる
 
 `_layouts/slide.html`
+.div-small[
 ```html
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>{{ page.title | strip_html }}</title>
-    <style>
+＜!DOCTYPE html＞
+＜html＞
+  ＜head＞
+    ＜meta charset="utf-8"＞
+    ＜title＞｛｛ page.title | strip_html ｝｝＜/title＞
+    ＜style＞
       @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
       @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
       @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
@@ -661,24 +671,25 @@ Hello world!
         font-weight: normal;
       }
       .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
-    </style>
-  </head>
-  <body>
-    <textarea id="source">
-{% include slides/{{ page.slide }} %}
-    </textarea>
-    <script src="https://remarkjs.com/downloads/remark-latest.min.js">
-    </script>
-    <script type="text/javascript">
+    ＜/style＞
+  ＜/head＞
+  ＜body＞
+    ＜textarea id="source"＞
+｛% include slides/｛｛ page.slide ｝｝ %｝
+    ＜/textarea＞
+    ＜script src="https://remarkjs.com/downloads/remark-latest.min.js"＞
+    ＜/script＞
+    ＜script type="text/javascript"＞
       var slideshow = remark.create();
-    </script>
-  </body>
-</html>
+    ＜/script＞
+  ＜/body＞
+＜/html＞
 ```
-
+]
 * remarkjs を読み込む。
 * `<textarea id="source">`の中に Markdown を書くと、remarkjs がスライドにレンダリングする。
 * そこに、Liquid 構文で、スライドの元ネタを読み込む。
+* 上は記号が全角になっているので注意。
 
 ---
 # Appendix: Github-pages, jekyll でスライドを表示させる
@@ -694,4 +705,4 @@ slide: my_slide.md
 
 * Front matter のみ。
 * `layout` で `_layout/slide.html`を指定する。
-* `slide` で `_includes/slides/my_slide.html`を指定する→`slide.html`の中の`{% include slides/{{ page.slide }} %}`で読み込まれる。
+* `slide` で `_includes/slides/my_slide.html`を指定する→`slide.html`の中の`｛% include slides/｛｛ page.slide ｝｝ %｝`で読み込まれる。

@@ -1,6 +1,6 @@
 ---
 layout: slide
 title: Learning from Rust
-slide: Test_slide.md
+slide: Learning_from_Rust_slide.md
 tags: rust C
 ---
