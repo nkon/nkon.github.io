@@ -484,10 +484,10 @@ $ cargo test
 ///
 /// # Examples
 ///
-/// ```
+/// ｀｀｀
 /// let five = 5;
 /// assert_eq!(6, my_crate::add_one(5));
-/// ```
+/// ｀｀｀
 pub fn add_one(x: i32) -> i32 {
     x + 1
 }
@@ -594,3 +594,34 @@ osEvent event = osMessageGet(message_q_id, osWaitForever);
     + 仕組みが汎用的で、非プログラマの人に説明する文書やCASEツール、フレームワークと馴染みが良い
 
 ]
+
+
+
+---
+
+# Appendix: Github-pages, jekyll でスライドを表示させる
+
+`_includes/slides/my_slide.md`
+```
+# My Awesome Presentation
+
+---
+
+# Agenda
+
+1. Introduction
+2. Deep-dive
+3. ...
+
+[NOTE]: Note that you need active internet connection to access remark.js script file
+
+---
+
+# Introduction
+
+Hello world!
+```
+
+* Front matter は不要。
+* `---`がスライド区切り。
+* 使えるアイテムは [https://github.com/gnab/remark/wiki/Using-with-Jekyll](https://github.com/gnab/remark/wiki/Using-with-Jekyll)参照。
