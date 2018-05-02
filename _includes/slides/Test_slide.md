@@ -650,6 +650,7 @@ Hello world!
 # Appendix: Github-pages, jekyll でスライドを表示させる
 
 `_layouts/slide.html`
+.small[
 ```html
 ＜!DOCTYPE html＞
 ＜html＞
@@ -681,7 +682,7 @@ Hello world!
   ＜/body＞
 ＜/html＞
 ```
-
+]
 * remarkjs を読み込む。
 * `<textarea id="source">`の中に Markdown を書くと、remarkjs がスライドにレンダリングする。
 * そこに、Liquid 構文で、スライドの元ネタを読み込む。
