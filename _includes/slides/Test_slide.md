@@ -626,6 +626,7 @@ Hello world!
 * `---`がスライド区切り。
 * 使えるアイテムは [https://github.com/gnab/remark/wiki/Using-with-Jekyll](https://github.com/gnab/remark/wiki/Using-with-Jekyll)参照。
 
+
 ---
 # Appendix: Github-pages, jekyll でスライドを表示させる
 
@@ -651,7 +652,7 @@ Hello world!
   </head>
   <body>
     <textarea id="source">
-{% include slides/{{ page.slide }} %}
+｛% include slides/｛｛ page.slide ｝｝ %｝
     </textarea>
     <script src="https://remarkjs.com/downloads/remark-latest.min.js">
     </script>
@@ -665,4 +666,3 @@ Hello world!
 * remarkjs を読み込む。
 * `<textarea id="source">`の中に Markdown を書くと、remarkjs がスライドにレンダリングする。
 * そこに、Liquid 構文で、スライドの元ネタを読み込む。
-
