@@ -596,6 +596,25 @@ osEvent event = osMessageGet(message_q_id, osWaitForever);
 ]
 
 
+---
+
+# Appendix: Github-pages, jekyll でスライドを表示させる
+
+参考：[https://qiita.com/natsukium/items/fd98511320ec1d98b851](https://qiita.com/natsukium/items/fd98511320ec1d98b851)
+
+ディレクトリ構成
+```
+username.github.io/
+ ├_includes/
+ │ └slides/
+ │    └my_slide.md
+ ├_layouts/
+ │   └slide.html
+ └_posts/
+      └YYYY-MM-DD-my_slide.md
+```
+
+
 
 ---
 
