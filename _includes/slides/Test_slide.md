@@ -621,6 +621,7 @@ username.github.io/
 # Appendix: Github-pages, jekyll でスライドを表示させる
 
 `_includes/slides/my_slide.md`
+.small[
 ```
 # My Awesome Presentation
 
@@ -640,7 +641,7 @@ username.github.io/
 
 Hello world!
 ```
-
+]
 * Front matter は不要。
 * `---`がスライド区切り。
 * 使えるアイテムは [https://github.com/gnab/remark/wiki/Using-with-Jekyll](https://github.com/gnab/remark/wiki/Using-with-Jekyll)参照。
