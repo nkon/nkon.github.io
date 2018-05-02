@@ -469,3 +469,128 @@ $ cargo test
 
 ぜひ `minigrep`の開発を打ち込みながら、辿ってみましょう。
 
+
+---
+
+# ドキュメンテーションコメント
+
+[TRPL-2nd](https://y-yu.github.io/trpl-2nd-pdf/book.pdf): p304
+
+.left-column[
+
+```rust
+/// Adds one to the number given.
+/// 与 え ら れ た 数 値 に 1 を 足 す 。
+///
+/// # Examples
+///
+/// ```
+/// let five = 5;
+/// assert_eq!(6, my_crate::add_one(5));
+/// ```
+pub fn add_one(x: i32) -> i32 {
+    x + 1
+}
+```
+
+]
+
+.right-column[
+
+* Doxygen などと同様
+    + Doxygen は広く使われており、PlantUMLなどの拡張機能が豊富
+* Rust の場合は Markdown 形式 → Markdown 形式
+* `# Examples`などの標準的なセクションを規約で定義
+* Doc test でコメント中のコード例がテストコードとして実行される
+
+]
+
+---
+
+# ヒープの開放
+
+[TRPL-2nd](https://y-yu.github.io/trpl-2nd-pdf/book.pdf): p333
+
+.left-column[
+    ある言語では、プログラマがスマートポインタのインスタンスを使い終わる度にメモリやリソースを解放するコードを呼ばなければなりません。忘れてしまったら、システムは詰め込みすぎになりクラッシュする可能性があります。 Rust では、値がスコープを抜ける度に特定のコードが走るよう指定でき、コンパイラはこのコードを自動的に挿入します。
+]
+
+.right-column[
+
+* C は `malloc`したら`free`を呼ぶのはプログラマの責任
+* C++ のようにデストラクタぐらいは欲しいものだ
+    + 「制限付きC++」をうまく導入できれば良いのだが
+* 極力、`malloc`を使わなくていいように工夫するのが自己防衛
+    + チャンクとして確保して作業を行い、終わったらチャンクごと捨てる、など
+
+]
+
+---
+
+# 非同期処理
+
+[TRPL-2nd](https://y-yu.github.io/trpl-2nd-pdf/book.pdf): p359
+
+* この章ではOSサポートがあるThread処理について扱う
+* 組み込みでの、ペリフェラルへの非同期アクセスについては、[Japaric氏のBrave new I/O](blog.japaric.io/brave-new-io/)に提案がある
+
+.left-column[
+    Go 言語のドキュメンテーションのスローガンにある考えです：メモリを共有することでやり取りするな ; 代わりにやり取りすることでメモリを共有しろ。
+メッセージ送信非同期処理を達成するために Rust に存在する1つの主な道具は、チャンネルで、Rust の標準ライブラリが実装を提供しているプログラミング概念です。
+(メモリ共有は)異なる所有者を管理する必要があるので、複数の所有権は複雑度を増させます。 Rust の型システムと所有権ルールにより、この管理を正当に行う大きな助けになります。
+
+
+```rust
+let (tx, rx) = mpsc::channel();
+tx.send(()).unwrap();
+```
+
+]
+
+.right-column[
+
+* RTOSには、共有領域の排他制御のために mutex や、Rustのチャネルの代わりに message_queue があることが多い
+* message_queue が使えるときは mutex よりも安全
+* queue に入れるデータの所有権や二重開放は(現状は)人間が注意する
+
+```C
+osMessageQDef(message_q, 5, uint32_t); // Declare a message queue
+osMessageQId (message_q_id);           // Declare an ID for the message queue
+
+message_q_id = osMessageCreate(osMessageQ(message_q), NULL);
+
+uint32_t data = 512;
+osMailPut(message_q_id, data, osWaitForever);
+
+osEvent event = osMessageGet(message_q_id, osWaitForever);
+```
+
+]
+
+
+---
+
+# State パターン
+
+[TRPL-2nd](https://y-yu.github.io/trpl-2nd-pdf/book.pdf): p395
+
+.left-column[
+
+* デザインパターンの実装例として、Stete パターンを使ったblogの記事発行が取り上げられている。
+* それぞれのSteteに対応する空構造体を定義し、遷移を構造体に対するメソッドとして定義する(次のStateに対応する構造体を返す)。
+* オリジナルのGoF本でも、TRPLのように、各々のStateに対応したClassを定義している。
+
+]
+
+.right-column[
+
+* Cで実装するときは、2次元の状態遷移表(列が状態に、行がイベントに対応する)を作成し、それぞれに関数ポインタでアクションを定めることが多いだろうか。
+* 得失は「ステートパターンの代償」にまとめられている。
+* クラスに情報を持たせる
+    + へんな呼び出しをコンパイル時に検出できる
+    + 実際に動く枝の分しかリソースを消費しない(遷移が疎だと表にした時に大量の無効エントリーが出る)
+* 表に情報を持たせる
+    + 無効なイベントは、無視ではなく、assertで落とすべきだ
+    + 仕組みが汎用的で、非プログラマの人に説明する文書やCASEツール、フレームワークと馴染みが良い
+
+]
