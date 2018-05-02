@@ -274,3 +274,28 @@ match guess.cmp(&secret_number) {
 * グローバル変数：Rustでは`unsafe`として扱われる→C でも基本的にグローバル変数は使わない。どこかで勝手に変更されるかもしれない変数はとても危険！
 
 ---
+
+# 整数型
+
+[TRPL-2nd](https://y-yu.github.io/trpl-2nd-pdf/book.pdf): p43
+
+
+.left-column[
+
+|大きさ|符号付き|符号なし|
+|------|--------|--------|
+|8bit  | i8     | u8     |
+|16bit | i16    | u16    |
+|32bit | i32    | u32    |
+|64bit | i64    | u64    |
+|arch  | isize  | usize  |
+
+]
+
+.right-column[
+
+* 基本的に整数の符号とサイズを意識する→Cでは`<stdint.h>`
+* 論理型は`<stdbool.h>`
+* 特殊型を活用する、なんでも `int`にせずに、コンパイラの型チェック機能を活かす
+
+]
