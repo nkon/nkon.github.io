@@ -682,4 +682,4 @@ slide: my_slide.md
 
 * Front matter のみ。
 * `layout` で `_layout/slide.html`を指定する。
-* `slide` で `_includes/slides/my_slide.html`を指定する→`slide.html`の中の`{% include slides/{{ page.slide }} %}`で読み込まれる。
+* `slide` で `_includes/slides/my_slide.html`を指定する→`slide.html`の中の`｛% include slides/｛｛ page.slide ｝｝ %｝`で読み込まれる。
