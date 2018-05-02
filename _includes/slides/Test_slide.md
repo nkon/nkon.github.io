@@ -1,4 +1,7 @@
-# My Awesome Presentation
+
+class: center, middle
+
+# Rust から学ぶ Good Practice
 
 ---
 
