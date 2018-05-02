@@ -121,6 +121,7 @@ $ curl https://sh.rustup.rs -sSf | sh
 $ rustup update
 ```
 ]
+
 .right-column[
 
 * OSの機能を使わず、自前のインストール、アップデート機能を持つ→良し悪し

@@ -105,3 +105,26 @@ Rustの解説として [TRPL: The Rust Programing Language 2nd(和訳)](https://
     + プロジェクトディレクトリ
 * リポジトリ
 
+---
+
+# Install, Update
+
+[TRPL-2nd](https://y-yu.github.io/trpl-2nd-pdf/book.pdf): p8
+
+.left-column[
+### Install
+```
+$ curl https://sh.rustup.rs -sSf | sh
+```
+### Update
+```
+$ rustup update
+```
+]
+
+.right-column[
+
+* OSの機能を使わず、自前のインストール、アップデート機能を持つ→良し悪し
+* `rustfmt`という整形ツールがオフィシャルから提供→スタイルの統一、not宗教戦争
+
+]
