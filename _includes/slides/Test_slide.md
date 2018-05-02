@@ -621,7 +621,7 @@ username.github.io/
 # Appendix: Github-pages, jekyll でスライドを表示させる
 
 `_includes/slides/my_slide.md`
-.small[
+.div-small[
 
 ```
 # My Awesome Presentation
@@ -653,7 +653,7 @@ Hello world!
 # Appendix: Github-pages, jekyll でスライドを表示させる
 
 `_layouts/slide.html`
-.small[
+.div-small[
 ```html
 ＜!DOCTYPE html＞
 ＜html＞
