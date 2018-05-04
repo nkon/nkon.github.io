@@ -147,6 +147,7 @@ slide: my_slide.md
 * `remark.create();`で、`<textarea id="source">`のDOM要素が、Markdown → スライドにレンダリングされる。
 * `<textarea>`の中に`｛% include ｛｛ ｝｝ %｝`を使って `slide: `で指定した Markdown を読み込む。
 * `.left-column{}`などのCSSを定義しておけば、スライドMarkdown で `.left-column[]`として使える。
+* 上の例では、中括弧は Liquid に影響しないように、全角で書いてある。コピペする時は注意。
 
 ## スライド本文
 
