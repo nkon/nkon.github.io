@@ -22,7 +22,7 @@ HTMLでスライドを作るためのライブラリは多数あるが、情報�
 
 GitHub からリポジトリではなくHTMLで書かれたWeb Siteを配信する仕組み。
 
-* User Page: アカウントあたり１つ。`https://github.com/アカウント名/アカウント名.github.io`というリポジトリを作成し、その`master`ブランチが`https://アカウント名.github.io/`というアドレスで公開される。
+* User Page: アカウントあたり1つ。`https://github.com/アカウント名/アカウント名.github.io`というリポジトリを作成し、その`master`ブランチが`https://アカウント名.github.io/`というアドレスで公開される。
 * Project Page: リポジトリごと。`https://github.com/アカウント名/リポジトリ名`というリポジトリの`/docs/`ディレクトリが`https://アカウント名.github.io/リポジトリ名/`というアドレスで公開される。
 
 ブログエンジンとして Jekyll を使うことも出来るし、HTML を直接アップすることも出来る。
@@ -35,7 +35,7 @@ GitHub Pages で使われている Blog エンジン。Markdown の原稿から�
 
 Jekyll で使われているテンプレートエンジン。`{`,`}`で囲まれたマークアップを用いる。
 
-* 変数の参照は `{{ }}`で、コマンドは `{% %}`で行う。
+* 変数の参照は `｛｛ ｝｝`で、コマンドは `｛% %｝`で行う。
 * テンプレートは `/_layouts/`に入っている。
 
 ## Kramdown
@@ -107,7 +107,7 @@ slide: my_slide.md
 <html>
   <head>
     <meta charset="utf-8">
-    <title>{{ page.title | strip_html }}</title>
+    <title>｛｛ page.title | strip_html ｝｝</title>
     <style>
       @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
       @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
@@ -132,7 +132,7 @@ slide: my_slide.md
   </head>
   <body>
     <textarea id="source">
-{% include slides/{{ page.slide }} %}
+｛% include slides/｛｛ page.slide ｝｝ %｝
     </textarea>
     <script src="https://remarkjs.com/downloads/remark-latest.min.js">
     </script>
@@ -142,9 +142,10 @@ slide: my_slide.md
   </body>
 </html>
 ```
+
 * remark.js を読み込む。
 * `remark.create();`で、`<textarea id="source">`のDOM要素が、Markdown → スライドにレンダリングされる。
-* `<textarea>`の中に`{% include {{ }} %}`を使って `slide: `で指定した Markdown を読み込む。
+* `<textarea>`の中に`｛% include ｛｛ ｝｝ %｝`を使って `slide: `で指定した Markdown を読み込む。
 * `.left-column{}`などのCSSを定義しておけば、スライドMarkdown で `.left-column[]`として使える。
 
 ## スライド本文
@@ -152,7 +153,7 @@ slide: my_slide.md
 * markdown で書く。
 * Front Matter は不要。
 * `---`がページ区切り。
-* `_layouts/slide.html`の`{% include`の記述と対応させて、`_includes/slides`の下に置く。
+* `_layouts/slide.html`の`｛% include`の記述と対応させて、`_includes/slides`の下に置く。
 
 スライド本文を別ファイルにしておかなければ、`---`が`<HR>`として水平線と解釈されてしまうようだ。
 
