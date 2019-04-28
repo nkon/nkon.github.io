@@ -1364,7 +1364,7 @@ $ sudo openocd -f board/st_nucleo_f103rb.cfg
 ```
 メインの端末で、(デバッグシンボルを含んでいる)オブジェクトファイルを引数に gdb を起動し、`target` を `remote localhost:3333`とする。OpenOCDがボードとつながっていて、gdb は OpenOCDのポート(localhost:3333)にコマンドを送ることでターゲットを操作するのだ。実行例に示すとおり、rustのソースコードレベルでデバッグができる。
 ```
-$ <strong>arm-none-eabi-gdb target/thumbv7m-none-eabi/debug/cubemx</strong> 
+$ arm-none-eabi-gdb target/thumbv7m-none-eabi/debug/cubemx
 GNU gdb (7.10-1ubuntu3+9) 7.10
 Copyright (C) 2015 Free Software Foundation, Inc.
 License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
@@ -1380,7 +1380,7 @@ Find the GDB manual and other documentation resources online at:
 For help, type "help".
 Type "apropos word" to search for commands related to "word"...
 Reading symbols from target/thumbv7m-none-eabi/debug/cubemx...done.
-(gdb) <strong>target remote localhost:3333</strong>
+(gdb) target remote localhost:3333
 Remote debugging using localhost:3333
 0x00000000 in ?? ()
 (gdb) continue
@@ -1406,17 +1406,15 @@ cubemx::rust_main () at src/main.rs:20
 ```
 よく使うコマンドは次のとおり。
 
-            <table border>
-                <tr><td>cont(inue)</td><td>実行を継続</td></tr>
-                <tr><td>^C</td><td>実行をブレイク</td></tr>
-                <tr><td>b(reak) <i>func</i></td><td><i>func</i>にブレークポイントを設定する。</td></tr>
-                <tr><td>n(ext) <i>d</i></td><td><i>d</i>行ステップオーバー。引数が無ければ1行</td></tr>
-                <tr><td>s(tep)</td><td>ステップイン。</td></tr>
-                <tr><td>n(ext)i</td><td>命令レベルで</td></tr>
-                <tr><td>finish</td><td>現在のスタックフレームから脱出する。</td></tr>
-                <tr><td>p(rint) <i>variable</i></td><td><i>variable</i>を表示する</td></tr>
-                <tr><td>quit</td><td>gdbを終了する</td></tr>
-            </table>
+* `cont(inue)` 実行を継続
+* `^C` 実行をブレイク
+* `b(reak) func` func にブレークポイントを設定する。
+* `n(ext) d` d 行ステップオーバー。引数が無ければ1行
+* `s(tep)` ステップイン。
+* `n(ext)i` 命令レベルで
+* `finish` 現在のスタックフレームから脱出する。
+* `p(rint) variable` variableを表示する
+* `quit` gdbを終了する
 
 ### gdb-dashboard
 
