@@ -10,6 +10,7 @@ Main sites are as follows.
 
 * [http://park11.wakwak.com/~nkon/](http://park11.wakwak.com/~nkon/)
 * [https://srad.jp/~kondou/journal](https://srad.jp/~kondou/journal)
+* [https://cold-darkstar.blogspot.com/](https://cold-darkstar.blogspot.com/)
 
 
 ### Contact me

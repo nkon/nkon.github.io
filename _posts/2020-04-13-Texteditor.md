@@ -2,7 +2,7 @@
 layout: post
 title: テキストエディタを作る
 category: blog
-tags: github rust
+tags: rust
 ---
 
 ここの記事を更新するのは約1年ぶり。夏の間は遊んでいたり秋からは仕事が忙しくなったりの近況だった。
