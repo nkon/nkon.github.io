@@ -4,9 +4,9 @@ title: About
 permalink: /about/
 ---
 
-This is subsite about programing.
+This is a sub-site about programing.
 
-Main sites are as follows.
+The main sites are below.
 
 * [http://park11.wakwak.com/~nkon/](http://park11.wakwak.com/~nkon/)
 * [https://srad.jp/~kondou/journal](https://srad.jp/~kondou/journal)
