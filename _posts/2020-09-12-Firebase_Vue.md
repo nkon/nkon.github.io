@@ -22,7 +22,7 @@ Vue.jsはアプリ構築のツールセット。JavaScriptのラッパーとし�
 
 この記事に沿って作成していったアプリは次のURLで稼働している。
 
-[https://toodoo-26092.web.app](https://toodoo-26092.web.app)
+[https://toodo-3f3dd.web.app/](https://toodo-3f3dd.web.app/)
 
 
 ![アプリイメージ](../images/firebase-ss13.png)
