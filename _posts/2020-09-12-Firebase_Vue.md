@@ -191,7 +191,7 @@ $ firebase deploy
 <template>
   <div id="task">
     タスクページ
-    <p>current user: \{\{username\}\}</p>
+    <p>current user: ｛｛username｝｝</p>
   </div>
 </template>
 <style>
@@ -405,7 +405,7 @@ export default {
 <template>
   <div id="task">
     タスクページ
-    <p>current user: \{\{username\}\}</p>
+    <p>current user: ｛｛username｝｝</p>
   </div>
 </template>
 <style>
@@ -671,7 +671,7 @@ Firebaseのプロジェクトコンソール→Realtime Database→ルール　�
           <div class="mdl-layout-spacer"></div>
           <!-- Navigation. We hide it in small screens. -->
             <nav class="mdl-navigation mdl-layout--large-screen-only">
-            \{\{username\}\}
+            ｛｛username｝｝
           </nav>
         </div>
 
@@ -699,7 +699,7 @@ Firebaseのプロジェクトコンソール→Realtime Database→ルール　�
         <!-- todo 一覧表示 -->
         <ul class="mdl-list">
           <li class="mdl-list__item" v-for="(todo, key) in filterdTodos" :key="todo.id">
-            <span class="mdl-list__item-primary-content">\{\{todo.name\}\}</span>
+            <span class="mdl-list__item-primary-content">｛｛todo.name｝｝</span>
             <span class="mdl-list__item-secondary-action">
               <a href="#" class="mdl-navigation__link large checked" v-if="todo.isComplete==true" v-on:click="updateIsCompleteTodo(todo, key)">✔</a>
               <a href="#" class="mdl-navigation__link large" v-if="todo.isComplete==false" v-on:click="updateIsCompleteTodo(todo, key)">❏</a>
