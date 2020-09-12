@@ -191,7 +191,7 @@ $ firebase deploy
 <template>
   <div id="task">
     タスクページ
-    <p>current user: {{username}}</p>
+    <p>current user: \{\{username\}\}</p>
   </div>
 </template>
 <style>
@@ -245,7 +245,7 @@ export default router
 
 ## ユーザ認証の追加<a name="h_authentication"></a>
 
-Firebaseのコンソール（[https://console.firebase.google.com/]）からプロジェクトのページに進み、「Authentication」→「Sign-in method」で「Google」を有効化する。
+[Firebaseのコンソール](https://console.firebase.google.com/)からプロジェクトのページに進み、「Authentication」→「Sign-in method」で「Google」を有効化する。
 
 ユーザコードを修正して、認証情報を利用できるようにする。
 
@@ -300,8 +300,7 @@ new Vue({
 }).$mount('#app')
 ```
 
-`.gitignore`
-`config/`を間違えて公開してしまわないように、`.gitignore`sに登録する。
+`config/`を間違えて公開してしまわないように`.gitignore`に登録する。
 
 `src/router/index.js`
 
@@ -400,13 +399,13 @@ export default {
 
 `src/components/Task.vue`
 
-dataを定義し、その中で`username`変数を定義する。その変数は認証情報から得られたユーザ名を代入する。
+`data()`を定義し、その返り値の中で`username`変数を定義する。その変数は認証情報から得られたユーザ名を代入する。これらの変数はHTMLパートから参照できる。
 
 ```html
 <template>
   <div id="task">
     タスクページ
-    <p>current user: {{username}}</p>
+    <p>current user: \{\{username\}\}</p>
   </div>
 </template>
 <style>
@@ -433,7 +432,7 @@ FirebaseにはCloud FirestoreとRealtime Databaseの2種類のデータベース
     + スケーラブル（自動）
     + ドキュメントのコレクションとしてデータを保管
 * Realtime Database
-    + 底レイテンシ
+    + 低レイテンシ
     + JSONツリーとしてデータを保管
 
 [https://firebase.google.com/docs/database/rtdb-vs-firestore?hl=ja](https://firebase.google.com/docs/database/rtdb-vs-firestore?hl=ja)
@@ -454,19 +453,19 @@ Sparkプラン（無料）ならば、1GBまでのデータ量、10GB/月のダ�
 
 `src/Task.vue`にデータの表示を実装する。
 
-ファイルを編集したときに間違っていればVS Codeで赤波線が出るし編集すれば即座にビルドが走りVue UIのserveにエラーが表示されるのでデバッグは非常に楽。間違って書くことが難しいぐらい。
+ファイルを編集したときに、間違っていればVS Codeで赤波線が出るし、編集すれば即座にビルドが走りVue UIのserveにエラーが表示される。デバッグは非常に楽。間違って書くことが難しいぐらい。
 
 ```js
 <template>
   <div id="task">
     タスクページ
-    <p>current user: {{username}}</p>
-    <p>current uid: {{uid}}</p>
+    <p>current user: ｛｛username｝｝</p>
+    <p>current uid: ｛｛uid｝｝</p>
 
     <!-- todo 一覧表示 -->
     <ul>
       <li v-for="(todo, key) in todos" :key="todo.id">
-        <span>{{todo.name}}
+        <span>｛｛todo.name｝｝
         <a href="#" v-if="todo.isComplete==true" v-on:click="updateIsCompleteTodo(todo, key)">✔</a>
         <a href="#" v-if="todo.isComplete==false" v-on:click="updateIsCompleteTodo(todo, key)">❏</a>
         </span>
@@ -478,7 +477,7 @@ Sparkプラン（無料）ならば、1GBまでのデータ量、10GB/月のダ�
 </template>
 ```
 
-Vue.jsの`v-for`を使って`todos`にある要素を`{{todo.name}}`で表示していく。チェックボックスは、本来はHTMLの`<checkbox>`を使えば良いのだが、あとでスタイルを当てる時に問題となるので`v-if`でUNICODE文字を切り替えての表示とする。
+Vue.jsの`v-for`を使って`todos`にある要素を`｛｛todo.name｝｝`で表示していく。チェックボックスは、本来はHTMLの`<checkbox>`を使えば良いのだが、あとでスタイルを当てる時に問題となるので`v-if`でUNICODE文字を切り替えての表示とする。
 
 デバッグ用に、usernameだけでなくuidも表示するようにしておく。
 
@@ -672,7 +671,7 @@ Firebaseのプロジェクトコンソール→Realtime Database→ルール　�
           <div class="mdl-layout-spacer"></div>
           <!-- Navigation. We hide it in small screens. -->
             <nav class="mdl-navigation mdl-layout--large-screen-only">
-            {{username}}
+            \{\{username\}\}
           </nav>
         </div>
 
@@ -700,7 +699,7 @@ Firebaseのプロジェクトコンソール→Realtime Database→ルール　�
         <!-- todo 一覧表示 -->
         <ul class="mdl-list">
           <li class="mdl-list__item" v-for="(todo, key) in filterdTodos" :key="todo.id">
-            <span class="mdl-list__item-primary-content">{{todo.name}}</span>
+            <span class="mdl-list__item-primary-content">\{\{todo.name\}\}</span>
             <span class="mdl-list__item-secondary-action">
               <a href="#" class="mdl-navigation__link large checked" v-if="todo.isComplete==true" v-on:click="updateIsCompleteTodo(todo, key)">✔</a>
               <a href="#" class="mdl-navigation__link large" v-if="todo.isComplete==false" v-on:click="updateIsCompleteTodo(todo, key)">❏</a>
