@@ -151,7 +151,7 @@ $ firebase deploy
 3. [Firebaseのデータベースを設定する。アプリでデータベースのデータを表示する](#h_database)
 4. [CSSで見かけを整える（Material Design）](#h_css)
 
-この手順に沿って作ったアプリは、コミット履歴とともに、次のところで公開している。文章でわかりづらいところは、更新履歴を参照していただきたい。
+この手順に沿って作ったアプリは、コミット履歴とともに、次のところで公開している。文章でわかりづらいところは、ソースコードと更新履歴を参照していただきたい。
 
 [https://github.com/nkon/toodo](https://github.com/nkon/toodo)
 
@@ -180,13 +180,17 @@ $ firebase deploy
 <style>
 </style>
 <script>
+</script>
 ```
 
 ### タスクリストページ
 
 アプリの機能であるタスク管理のページ。本来であればタスクが並ぶはずだが、現時点では単なるページである。ユーザ名を表示できるような機能が書かれているが、この変数は、認証機能を実装したあとでないと表示されない。
 
-`src/components/Task.vue`
+GitHub Pagesの制限で`｛｛` `｝｝`は全角で書いてあるが、実際には半角である。
+
+#### `src/components/Task.vue`
+
 ```html
 <template>
   <div id="task">
@@ -261,7 +265,8 @@ FirebaseコンソールのAuthenticationで確認して見ると、ユーザが�
 
 なぜか、ドキュメントに書かれているような`index.html`にFirebaseの設定情報を書く方法がうまくいかない。回避方法として、`config/local.js`に設定情報を書いて、それを読み込むことにする。
 
-`config/local.js`
+#### `config/local.js`
+
 Firebaseの「設定」→「Firebase SDK Snippet」→「構成」で表示される情報をコピペし、次のように整形する。
 
 ```js
@@ -277,7 +282,8 @@ export var firebaseConfig = {
   }
 ```
 
-`index.html`
+#### `index.html`
+
 ```html
 <!-- The core Firebase JS SDK is always required and must be listed first -->
 ```
@@ -302,7 +308,7 @@ new Vue({
 
 `config/`を間違えて公開してしまわないように`.gitignore`に登録する。
 
-`src/router/index.js`
+ #### `src/router/index.js`
 
 まず、`/`で`Task`が呼び出された時に、`requiresAuth`を`true`にセットする。
 
@@ -397,7 +403,7 @@ export default {
 </script>
 ```
 
-`src/components/Task.vue`
+#### `src/components/Task.vue`
 
 `data()`を定義し、その返り値の中で`username`変数を定義する。その変数は認証情報から得られたユーザ名を代入する。これらの変数はHTMLパートから参照できる。
 
@@ -453,7 +459,7 @@ Sparkプラン（無料）ならば、1GBまでのデータ量、10GB/月のダ�
 
 `src/Task.vue`にデータの表示を実装する。
 
-ファイルを編集したときに、間違っていればVS Codeで赤波線が出るし、編集すれば即座にビルドが走りVue UIのserveにエラーが表示される。デバッグは非常に楽。間違って書くことが難しいぐらい。
+ファイルを編集したときに、間違っていればVS Codeで赤波線が出るし（Vetur拡張を入れておこう）、保存すれば即座にビルドが走りVue UIのserveにエラーが表示される。デバッグは非常に楽。間違って書くことが難しいぐらい。
 
 ```js
 <template>

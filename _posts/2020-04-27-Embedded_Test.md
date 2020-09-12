@@ -246,7 +246,7 @@ void vApplicationIdleHook(void)
 
 #### Early Exit
 
-上の例において`StartApp()`でタイマタスクを起動するところがEarly Exitになっていることにも気づいて欲しい。
+上の例において`StartApp()`でタイマ・タスクを起動するところがEarly Exitになっていることにも気づいて欲しい。
 次の例は、深い入れ子の（悪い）パターンだ。
 
 ```c
