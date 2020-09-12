@@ -146,6 +146,10 @@ $ firebase deploy
 3. [Firebaseのデータベースを設定する。アプリでデータベースのデータを表示する](#h_database)
 4. [CSSで見かけを整える（Material Design）](#h_css)
 
+この手順に沿って作ったアプリは、コミット履歴とともに、次のところで公開している。文章でわかりづらいところは、更新履歴を参照していただきたい。
+
+[https://github.com/nkon/toodo](https://github.com/nkon/toodo)
+
 
 ## ページ遷移の追加<a name="h_page_transition"></a>
 
