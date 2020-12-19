@@ -9,8 +9,7 @@ tags: rust coding 動画 youtube
 この冬もコロナで篭もることになりそうだ。関数電卓作成のプロジェクトを行っている。プロジェクトの説明、設計や実装については別途記事にしたいと考えているが、現時点では執筆中だ。一方、最近、他人のコーディング動画を見る機会があった。私の職場にはペアプログラミングの習慣はないので、他人のコーディングを見る機会は少なかったが、動画からは、記事だけでは伝わらない・ナルホドと関心する点が多かった。自分もコーディング動画を配信すれば、コーディングの進め方やツールの使い方などで参考にしていただけることもあるだろう。
 
 YouTubeへのリンクはこちら。
-[https://youtu.be/9JqJR-TvJzg](https://youtu.be/9JqJR-TvJzg)
-
+[![https://youtu.be/9JqJR-TvJzg](https://img.youtube.com/vi/9JqJR-TvJzg/0.jpg)](https://www.youtube.com/watch?v=9JqJR-TvJzg)
 
 
 プロジェクトのリポジトリはGitHubに公開しているので、そこからソースコードや履歴を参照することができる。
@@ -28,7 +27,7 @@ YouTubeへのリンクはこちら。
 
 ## 録画
 
-ゲーム実況用の[OBS Studio](https://obsproject.com/ja)なども有名だが、今回は[SimpleScreenRecorder](https://www.maartenbaert.be/simplescreenrecorder/)というツールを使った。画面を録画するとともに、マイクでの入力も同時に録音できる。
+ゲーム実況用の[OBS Studio](https://obsproject.com/ja)なども有名だが、今回は[SimpleScreenRecorder](https://www.maartenbaert.be/simplescreenrecorder/)というツールを使った。画面を録画するとともに、マイクでの入力も同時に録音できる。起動するとWizerd形式の設定画面が立ち上がり、簡単に画面録画が可能だ。
 
 ## 音声の編集
 
@@ -47,6 +46,10 @@ ffmpegで音声と映像をマージする。
 ```
 $ ffmpeg -i live-coding-2020-12-19_12.59.52.mkv -i Downloads/live-coding-2020-12-19_12.59.52.mp3 -c:v copy -c:a copy -map 0:v:0 -map 1:a:0 output.mp4
 ```
+
+
+[Kdenlive](https://kdenlive.org/en/)などで字幕を付けることもできる。今回はできるだけ動画中で喋って解説したので字幕は付けない。
+
 
 これをYouTubeにアップすればOK。
 
