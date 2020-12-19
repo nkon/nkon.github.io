@@ -8,10 +8,9 @@ tags: rust coding 動画 youtube
 
 この冬もコロナで篭もることになりそうだ。関数電卓作成のプロジェクトを行っている。プロジェクトの説明、設計や実装については別途記事にしたいと考えているが、現時点では執筆中だ。一方、最近、他人のコーディング動画を見る機会があった。私の職場にはペアプログラミングの習慣はないので、他人のコーディングを見る機会は少なかったが、動画からは、記事だけでは伝わらない・ナルホドと関心する点が多かった。自分もコーディング動画を配信すれば、コーディングの進め方やツールの使い方などで参考にしていただけることもあるだろう。
 
-YouTubeへのリンクはこちら。
+<iframe width="560" height="315" src="https://www.youtube.com/embed/9JqJR-TvJzg" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
-[![https://youtu.be/9JqJR-TvJzg](https://img.youtube.com/vi/9JqJR-TvJzg/0.jpg)](https://www.youtube.com/watch?v=9JqJR-TvJzg)
-
+埋め込み再生ではなくYouTubeのサイトに行ってHD画質で再生すると文字が潰れない。
 
 プロジェクトのリポジトリはGitHubに公開しているので、そこからソースコードや履歴を参照することができる。
 動画の対象としているのは、ちょうど次のコミットだ。
