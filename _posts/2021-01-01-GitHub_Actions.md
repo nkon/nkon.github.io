@@ -113,7 +113,7 @@ jobs:
           path: rc-${{ matrix.target }}.zip
 ```
 
-matrixでターゲットを複数定義する。今回は`x86_64-unknown-linux-musl`、`x86_64-pc-windows-msvc`、`x86_64-apple-darwin`の2種類。それぞれのターゲットに応じてビルドOSを設定する。
+`strategy:`、`matrix:`でターゲットを複数定義する。今回は`x86_64-unknown-linux-musl`、`x86_64-pc-windows-msvc`、`x86_64-apple-darwin`の2種類。それぞれのターゲットに応じてビルドOSを設定する。
 
 `runs-os`でOSをスタート。
 
@@ -123,6 +123,7 @@ Linux版はMUSLによるスタティックリンクされたバイナリ、Windo
 
 
 その後zipでパッケージを作成する。しかし、`windows-latest`ではzipコマンドが用意されていない。powershellの内蔵コマンドでzipパッケージを作成する。
+パッケージは次のジョブで利用されるのでアーティファクトとしてアップロードしておく。
 
 
 ## Create-Release、
