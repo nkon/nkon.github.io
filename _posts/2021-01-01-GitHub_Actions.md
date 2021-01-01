@@ -2,7 +2,7 @@
 layout: post
 title: GitHubのActionでマルチ環境向けのバイナリをビルドして配布する(Rust)
 category: blog
-tags: rust
+tags: rust github git calculator test
 ---
 
 CLI（command line interface）ツールはRustでも力を入れてりるターゲット。RustはLLVMをバックエンドとしているし、ライブラリも抽象化されている。GUIを扱わない範囲ではWindows/Linux/Macを対象とした移植性があるCLIツールを書きやすい。さらにGitHubではActionを用いたビルドファーム（テストも）がOSSでは利用可能だ。ソースからビルドではなく、多環境向けのバイナリをGitHub Actionsでビルドしてバイナリ配布するための設定について述べる。
@@ -115,7 +115,7 @@ jobs:
 
 `strategy:`、`matrix:`でターゲットを複数定義する。今回は`x86_64-unknown-linux-musl`、`x86_64-pc-windows-msvc`、`x86_64-apple-darwin`の2種類。それぞれのターゲットに応じてビルドOSを設定する。
 
-`runs-os`でOSをスタート。
+`runs-os`でビルド用のOSを起動。
 
 わかりやすいように`steps`では`name`を付けている。muslツールは標準ではないので`apt`で追加のセットアップを行う。Rustのツールチェインのセットアップは`acsions-rs`に用意されているものを使う。その上で、testとbuildを実施。クレートをキャッシュする方法もあるようだが、今回は用いていない。私が試した時は、浮動小数点の演算精度のせいで特定のターゲットでテストがFailしたりした。
 
@@ -194,7 +194,7 @@ YAMLなのでインデントレベルが重要。`create-release:`のインデ�
 
 いろいろ試している時に、tagを付けずにリリースしていたらGitHubのリポジトリが壊れてえらいことになった。
 
-詳細は忘れてしまったが、`refs/tags/refs/heads/master`というタグ・ブランチができていた。タグをつけると、`refs/tags/v0.1.0`のようなブランチができるのだが、タグを指定せずにタグをつけたら、`master`の正式名である`refs/heads/master`がタグとして認識されて、へんなブランチができたのだろう。そのせいでリモートに`master`をpushする時に複数のターゲットがマッチするのでpushできない、というような内容だったと思う。
+詳細は忘れてしまったが、`refs/tags/refs/heads/master`というブランチができていた。タグをつけると、`refs/tags/v0.1.0`のようなブランチができるのだが、タグを指定せずにタグをつけたら、`master`の正式名である`refs/heads/master`がタグとして認識されて、へんなブランチができたのだろう。そのせいでリモートに`master`をpushする時に複数のターゲットがマッチするのでpushできない、というような内容だったと思う。
 
 `git ls-remote`で問題のタグのフル名を特定し、そこに`git push origin :refs/tags/refs/heads/master`というpushをすることでそれを削除して復活した。
 
