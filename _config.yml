@@ -25,10 +25,10 @@ footer-links:
   instagram:
   linkedin:
   pinterest:
-  rss: # just type anything here for a working RSS icon
+  rss: yes
   twitter: n_kondou
   stackoverflow: # your stackoverflow profile, e.g. "users/50476/bart-kiers"
-  youtube: # channel/<your_long_string> or user/<user-name>
+  youtube: channel/UClYC0zKEW0ufeg5Y521ujyg
   googleplus: # anything in your profile username that comes after plus.google.com/
 
 

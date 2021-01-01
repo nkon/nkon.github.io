@@ -2,7 +2,7 @@
 layout: post
 title: コーディング動画(Rustで関数電卓を作る)
 category: blog
-tags: rust coding 動画 youtube
+tags: rust coding 動画 youtube ffmpeg
 ---
 
 
