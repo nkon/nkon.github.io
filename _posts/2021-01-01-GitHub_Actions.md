@@ -39,7 +39,7 @@ env:
 * `name` ⇒好きに名前を付けてよい。
 * `on:`→`push:`→`tags:`→`v*`⇒ `push`時に`tags`が付いていたら発動。VS-Codeの場合は`push`ではtagはpushされないので、コマンドラインでpushするか(`git push --tags`)、コマンドパレット(F1)で`Git Push Tags`を選択する。
 
-`GARGO_TERM_COLOR:` はコマンド応答をカラフルに行う工夫。
+`CARGO_TERM_COLOR:` はコマンド応答をカラフルに行う工夫。
 
 
 ## Build
@@ -152,7 +152,7 @@ Linux版はMUSLによるスタティックリンクされたバイナリ、Windo
 
 YAMLなのでインデントレベルが重要。`create-release:`のインデントレベルは`build:`と同じにする。
 
-`build`が全て（3つとも）完了したら`create-release:`がトリガされる。
+`build`がすべて（3つとも）完了したら`create-release:`がトリガされる。
 
 `GITHUB_TOKEN`はこのように書いておけば勝手に渡してくれる。GitHubにプッシュされたタグからリリース名を作って`actions/create-release`でリリースを作成する。そうすれば、GitHubはプロジェクトごとに[リリースページ](https://github.com/nkon/rc-rs/releases)を持っており、そこに項目が作成される。
 
