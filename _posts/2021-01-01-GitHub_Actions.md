@@ -62,7 +62,7 @@ jobs:
           - target: x86_64-apple-darwin
             os: macos-latest
 
-    runs-on: ${{ matrix.os }}
+    runs-on: $｛｛ matrix.os ｝｝
 
     steps:
       - name: Setup code
@@ -78,7 +78,7 @@ jobs:
         with:
           profile: minimal
           toolchain: stable
-          target: ${{ matrix.target }}
+          target: $｛｛ matrix.target ｝｝
           override: true
 
       - name: test
@@ -90,27 +90,27 @@ jobs:
         uses: actions-rs/cargo@v1
         with:
           command: build
-          args: --release --target=${{ matrix.target }}
+          args: --release --target=$｛｛ matrix.target ｝｝
 
       - name: Package for linux-musl
         if: matrix.target == 'x86_64-unknown-linux-musl'
         run: |
-          zip --junk-paths rc-${{ matrix.target }} target/${{ matrix.target }}/release/rc
+          zip --junk-paths rc-$｛｛ matrix.target ｝｝ target/$｛｛ matrix.target ｝｝/release/rc
 
       - name: Package for windows
         if: matrix.target == 'x86_64-pc-windows-msvc'
         run: |
-          powershell Compress-Archive -Path target/${{ matrix.target }}/release/rc.exe -DestinationPath rc-${{ matrix.target }}.zip
+          powershell Compress-Archive -Path target/$｛｛ matrix.target ｝｝/release/rc.exe -DestinationPath rc-$｛｛ matrix.target ｝｝.zip
 
       - name: Package for macOS
         if: matrix.target == 'x86_64-apple-darwin'
         run: |
-          zip --junk-paths rc-${{ matrix.target }} target/${{ matrix.target }}/release/rc
+          zip --junk-paths rc-$｛｛ matrix.target ｝｝ target/$｛｛ matrix.target ｝｝/release/rc
 
       - uses: actions/upload-artifact@v2
         with:
-          name: build-${{ matrix.target }}
-          path: rc-${{ matrix.target }}.zip
+          name: build-$｛｛ matrix.target ｝｝
+          path: rc-$｛｛ matrix.target ｝｝.zip
 ```
 
 `strategy:`、`matrix:`でターゲットを複数定義する。今回は`x86_64-unknown-linux-musl`、`x86_64-pc-windows-msvc`、`x86_64-apple-darwin`の2種類。それぞれのターゲットに応じてビルドOSを設定する。
@@ -136,14 +136,14 @@ Linux版はMUSLによるスタティックリンクされたバイナリ、Windo
       - id: create-release
         uses: actions/create-release@v1
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: $｛｛ secrets.GITHUB_TOKEN ｝｝
         with:
-          tag_name: ${{ github.ref }}
-          release_name: Release ${{ github.ref }}
+          tag_name: $｛｛ github.ref ｝｝
+          release_name: Release $｛｛ github.ref ｝｝
           draft: false
           prerelease: true
       - run: |
-          echo '${{ steps.create-release.outputs.upload_url }}' > release_upload_url.txt
+          echo '$｛｛ steps.create-release.outputs.upload_url ｝｝' > release_upload_url.txt
       - uses: actions/upload-artifact@v1
         with:
           name: create-release
@@ -177,14 +177,14 @@ YAMLなのでインデントレベルが重要。`create-release:`のインデ�
           echo "::set-output name=url::$(cat create-release/release_upload_url.txt)"
       - uses: actions/download-artifact@v1
         with:
-          name: build-${{ matrix.target }}
+          name: build-$｛｛ matrix.target ｝｝
       - uses: actions/upload-release-asset@v1
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: $｛｛ secrets.GITHUB_TOKEN ｝｝
         with:
-          upload_url: ${{ steps.upload-url.outputs.url }}
-          asset_path: ./build-${{ matrix.target }}/rc-${{ matrix.target }}.zip
-          asset_name: rc-${{ matrix.target }}.zip
+          upload_url: $｛｛ steps.upload-url.outputs.url ｝｝
+          asset_path: ./build-$｛｛ matrix.target ｝｝/rc-$｛｛ matrix.target ｝｝.zip
+          asset_name: rc-$｛｛ matrix.target ｝｝.zip
           asset_content_type: application/zip
 ```
 
