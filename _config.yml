@@ -38,7 +38,7 @@ disqus: nkon
 
 # Enter your Google Analytics web tracking code (e.g. UA-2110908-2) to activate tracking
 google_analytics: UA-99595909-1
-
+google_analyticsga4: G-LM4J0SVR1M 
 # Enter your amazon associate ID
 amazon_associate:
 
