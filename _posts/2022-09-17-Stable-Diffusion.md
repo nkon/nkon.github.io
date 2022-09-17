@@ -23,11 +23,12 @@ $ brew install anaconda
 
 本家ではなく、移植を行っているグループの`apple-mps-support`ブランチからクローンして、そのとおりにやれば動く。
 
-https://github.com/magnusviri/stable-diffusion/blob/apple-mps-support/README-Mac-MPS.md
+[https://github.com/magnusviri/stable-diffusion/blob/apple-mps-support/README-Mac-MPS.md](https://github.com/magnusviri/stable-diffusion/blob/apple-mps-support/README-Mac-MPS.md)
 
 また、こちらからアカウントを作成して、ウェイトファイルをダウンロードする。合計12GBぐらい。
 
-https://huggingface.co/CompVis/stable-diffusion-v-1-4-original
+[https://huggingface.co/CompVis/stable-diffusion-v-1-4-original]([https://huggingface.co/CompVis/stable-diffusion-v-1-4-original]
+)
 
 
 まずは、ソースコードをクローンする。
