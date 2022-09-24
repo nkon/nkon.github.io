@@ -2,7 +2,7 @@
 layout: post
 title: M2 MacBook AirでStable Diffusionをローカル実行する
 category: blog
-tags: mac python AI
+tags: mac python ai
 ---
 
 流行りの画像生成AI, Stable Diffusion をローカルで実行してみる。手元の環境はM2 MacBook Air。通常、AIの実行にはnVidiaのGPUが業界標準となっているが、Stable DiffusionはMacのGPU(MPS)へのポートが進められており、MacでもGPUを使って実行できる。
@@ -18,6 +18,19 @@ tags: mac python AI
 ```
 $ brew install anaconda
 ```
+
+anaconda をインストールしたあとはパスを通しておく。
+
+```
+$ export PATH="/opt/homebrew/anaconda3/bin:$PATH"
+```
+
+
+```
+$ /opt/homebrew/anaconda3/bin/conda init zsh
+```
+としても良いが `~/.zshrc`を書き換えられるので注意。
+
 
 ## 手順
 
