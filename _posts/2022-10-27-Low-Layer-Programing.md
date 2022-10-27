@@ -10,7 +10,7 @@ tags: linux x86 c assembler
 これがわかれば、だいたい中級だと思う。本書の環境はLinuxベースだが、紹介されているテクニックはCortex-M+baremetal組み込みでも十分役に立つと思う。
 
 
-家のパソコンがMacなので、x86_64+Linuxの環境を作るために[Limaをインストール]()。
+家のパソコンがMacなので、x86_64+Linuxの環境を作るために[Limaをインストール](https://nkon.github.io/Lima/)。
 
 
 第一部がアセンブラ、第二部がC、第三部がリンカーやライブラリなど、という構成。
