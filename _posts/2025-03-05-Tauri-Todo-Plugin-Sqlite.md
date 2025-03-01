@@ -7,10 +7,10 @@ tags: rust tauri react javascript
 
 Tauriの練習問題として簡単なToDoアプリを作る。
 
-* [セットアップ](../Tauri-Setup.md)
-* [簡単なアプリ(MP3プレイヤー)](../Tauri-Player1.md)
-* [Todo(React版)](../Tauri-Todo.md)
-* [Todo(rusqlite版)](../Tauri-Todo-Rusqlite.md)
+* [セットアップ](../Tauri-Setup/)
+* [簡単なアプリ(MP3プレイヤー)](../Tauri-Player1/)
+* [Todo(React版)](../Tauri-Todo/)
+* [Todo(rusqlite版)](../Tauri-Todo-Rusqlite/)
 * Todo(SQLプラグイン版)(本記事)
 
 ## Tauri SQL plugin
@@ -147,8 +147,8 @@ MP3プレイヤーと同様に、これをApp.jsxの中から呼び出してや�
 見た目、機能はRusqlite版と同様。
 
 
-* [セットアップ](../Tauri-Setup.md)
-* [簡単なアプリ(MP3プレイヤー)](../Tauri-Player1.md)
-* [Todo(React版)](../Tauri-Todo.md)
-* [Todo(rusqlite版)](../Tauri-Todo-Rusqlite.md)
+* [セットアップ](../Tauri-Setup/)
+* [簡単なアプリ(MP3プレイヤー)](../Tauri-Player1/)
+* [Todo(React版)](../Tauri-Todo/)
+* [Todo(rusqlite版)](../Tauri-Todo-Rusqlite/)
 * Todo(SQLプラグイン版)(本記事)

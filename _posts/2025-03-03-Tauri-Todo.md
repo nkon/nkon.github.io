@@ -7,11 +7,11 @@ tags: rust tauri react javascript
 
 Tauriの練習問題として簡単なToDoアプリを作る。
 
-* [セットアップ](../Tauri-Setup.md)
-* [簡単なアプリ(MP3プレイヤー)](../Tauri-Player1.md)
+* [セットアップ](../Tauri-Setup/)
+* [簡単なアプリ(MP3プレイヤー)](../Tauri-Player1/)
 * Todo(React版)(本記事)
-* [Todo(rusqlite版)](../Tauri-Todo-Rusqlite.md)
-* [Todo(SQLプラグイン版)](../Tauri-Todo-Plugin-Sqlite.md)
+* [Todo(rusqlite版)](../Tauri-Todo-Rusqlite/)
+* [Todo(SQLプラグイン版)](../Tauri-Todo-Plugin-Sqlite/)
 
 以前にも[Firebase+Vue.jsでTodoアプリを作ってみた](2020-09-12-Firebase_Vue.md)ことがある。
 
@@ -71,8 +71,8 @@ MP3プレイヤーと同様に、これをApp.jsxの中から呼び出してや�
 
 次はSQLiteを使ってデータを保存できるようにする
 
-* [セットアップ](../Tauri-Setup.md)
-* [簡単なアプリ(MP3プレイヤー)](../Tauri-Player1.md)
+* [セットアップ](../Tauri-Setup/)
+* [簡単なアプリ(MP3プレイヤー)](../Tauri-Player1/)
 * Todo(React版)(本記事)
-* [Todo(rusqlite版)](../Tauri-Todo-Rusqlite.md)
-* [Todo(SQLプラグイン版)](../Tauri-Todo-Plugin-Sqlite.md)
+* [Todo(rusqlite版)](../Tauri-Todo-Rusqlite/)
+* [Todo(SQLプラグイン版)](../Tauri-Todo-Plugin-Sqlite/)

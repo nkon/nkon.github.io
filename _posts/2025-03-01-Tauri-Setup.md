@@ -8,10 +8,10 @@ tags: rust tauri react javascript
 Tauriというアプリケーションフレームワークがある。フロントエンドをReactなどのウェブ技術で、バックエンドをRustで作り、作りやすさと信頼性を兼ね備えることを目標としたものだ。フロントエンドはElectronのようにChromiumを丸ごとパッケージに埋め込むのではなく、OSが持っているWebViewを利用するのでバイナリサイズが小さい。Tauri2.0からはデスクトップアプリ(Windows, macOS, Linuxのマルチプラットフォーム)だけでなくiOS、Androidのモバイルプラットフォームもサポートしている。本記事を含む数個の記事で、セットアップから簡単なアプリの作成までをを解説する。
 
 * セットアップ(本記事)
-* [簡単なアプリ(MP3プレイヤー)](../Tauri-Player1.md)
-* [Todo(React版)](../Tauri-Todo.md)
-* [Todo(rusqlite版)](../Tauri-Todo-Rusqlite.md)
-* [Todo(SQLプラグイン版)](../Tauri-Todo-Plugin-Sqlite.md)
+* [簡単なアプリ(MP3プレイヤー)](../Tauri-Player1/)
+* [Todo(React版)](../Tauri-Todo/)
+* [Todo(rusqlite版)](../Tauri-Todo-Rusqlite/)
+* [Todo(SQLプラグイン版)](../Tauri-Todo-Plugin-Sqlite/)
 
 マルチプラットフォームのアプリフレームワークは、古くからXamarinやGtk, Qtをベースにしたものがあったが、いまいち流行っていない。原因としてはウィジェットがベース環境のUIの雰囲気と合っていなかったり、ベース環境とフレームワークの2つを覚えなければならなかったり。そうこうしているうちに、マルチプラットフォームをサポートするために、Electronベースのアプリ、マテリアルデザインが主流になってきた。しかしElectronは重い。
 
@@ -555,7 +555,7 @@ tauri-app/
 
 つぎは、このテンプレートに、自分の好みの機能を追加していく。最初はMP3プレイヤーを追加してみよう。
 
-* [簡単なアプリ(MP3プレイヤー)](../Tauri-Player1.md)
-* [Todo(React版)](../Tauri-Todo.md)
-* [Todo(rusqlite版)](../Tauri-Todo-Rusqlite.md)
-* [Todo(SQLプラグイン版)](../Tauri-Todo-Plugin-Sqlite.md)
+* [簡単なアプリ(MP3プレイヤー)](../Tauri-Player1/)
+* [Todo(React版)](../Tauri-Todo/)
+* [Todo(rusqlite版)](../Tauri-Todo-Rusqlite/)
+* [Todo(SQLプラグイン版)](../Tauri-Todo-Plugin-Sqlite/)
