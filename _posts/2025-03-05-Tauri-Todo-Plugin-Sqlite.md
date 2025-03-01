@@ -33,7 +33,7 @@ Tauriの練習問題として簡単なToDoアプリを作る。
 
 また、`src-tauri/tauri.conf.json`にデータベースのパスをセットしておく。
 
-```javascript
+```
   "plugins": {
     "sql": {
       "default": {
@@ -58,7 +58,7 @@ SQLプラグインを使う場合は、React側でテーブル定義、SQL生成
 
 注意: Jykellのレンダリングのバグを回避するために二重波括弧は間にスペースが入っている。実際のコードでは省くこと。
 
-```javascript
+```
 import React, { useState, useEffect } from "react";
 import Database from '@tauri-apps/plugin-sql';
 
