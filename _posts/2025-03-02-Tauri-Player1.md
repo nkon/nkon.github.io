@@ -24,7 +24,7 @@ Tauriの練習問題として簡単なMP3プレイヤーを作る。
 * HTMLの`<audio>`要素を使って音源を再生する。
 * 音源のパスは固定(public/audio/sample.mp3)。コード中からは相対的にaudio/sample.mp3というパスで参照されている。音源はアセットとしてバイナリーに埋め込まれる。
 
-```jsx
+```javascript
 import React, { useRef, useState, useEffect } from 'react';
 
 const AudioPlayer = () => {

@@ -184,7 +184,7 @@ src/ToDoSqlite.jsxにReact側のコードを書いていく。
 * `await invoke("")`でRust側のAPIを呼び出してレンダリングする。
 * このバージョンのフロントエンドには、アイテムをクリックしたら完了・未完了がトグルし、完了(`completed`)だと取り消し線で表示される。
 
-```jsx
+```javascript
 import React, { useState, useEffect } from "react";
 import { invoke } from "@tauri-apps/api/core";
 

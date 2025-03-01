@@ -23,7 +23,7 @@ Tauriの練習問題として簡単なToDoアプリを作る。
 * フォームに入力して"Add Task"というボタンを押せば項目が追加される。
 * 項目の横の"Delete"というボタンを押せば項目が消去される。
 
-```jsx
+```javascript
 import React, { useState } from 'react';
 
 const ToDo = () => {
