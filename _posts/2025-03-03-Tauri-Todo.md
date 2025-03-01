@@ -13,7 +13,7 @@ Tauriの練習問題として簡単なToDoアプリを作る。
 * [Todo(rusqlite版)](../Tauri-Todo-Rusqlite/)
 * [Todo(SQLプラグイン版)](../Tauri-Todo-Plugin-Sqlite/)
 
-以前にも[Firebase+Vue.jsでTodoアプリを作ってみた](2020-09-12-Firebase_Vue.md)ことがある。
+以前にも[Firebase+Vue.jsでTodoアプリを作ってみた](../Firebase_Vue/)ことがある。
 
 今回もAIの力を借りながらTodoアプリのフロントエンドを作る。今回の練習問題は、Tauriとはいいながら、Rustのコードは無い。全てのアプリの機能がReact上で実装されている。さらに、データの保存機能もない。ローカルへのデータの保存機能は次回以降で実装予定。
 
