@@ -184,6 +184,8 @@ src/ToDoSqlite.jsxにReact側のコードを書いていく。
 * `await invoke("")`でRust側のAPIを呼び出してレンダリングする。
 * このバージョンのフロントエンドには、アイテムをクリックしたら完了・未完了がトグルし、完了(`completed`)だと取り消し線で表示される。
 
+注意: Jykellのレンダリングのバグを回避するために二重波括弧は間にスペースが入っている。実際のコードでは省くこと。
+
 ```javascript
 import React, { useState, useEffect } from "react";
 import { invoke } from "@tauri-apps/api/core";
@@ -219,7 +221,7 @@ const ToDoSqlite = () => {
     }
 
     return (
-        <div style={{ textAlign: 'center', padding: '2rem' }}>
+        <div style={ { textAlign: 'center', padding: '2rem' } }>
             <h1>TODO App</h1>
             <input
                 type="text"
@@ -232,7 +234,7 @@ const ToDoSqlite = () => {
                 {todos.map((todo) => (
                     <li key={todo.id}>
                         <span
-                            style={{ textDecoration: todo.completed ? "line-through" : "none", }}
+                            style={ { textDecoration: todo.completed ? "line-through" : "none", } }
                             onClick={() => toggleTodo(todo.id)}>{todo.task}</span> <button onClick={() => removeTodo(todo.id)}>Delete</button>
                     </li>
                 ))}

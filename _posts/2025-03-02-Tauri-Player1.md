@@ -22,7 +22,9 @@ Tauriの練習問題として簡単なMP3プレイヤーを作る。
 「TauriとReactでMP3プレイヤーを作成してください」のような雑なクエリを投げると、次のようなコードを生成してくれる。
 
 * HTMLの`<audio>`要素を使って音源を再生する。
-* 音源のパスは固定(public/audio/sample.mp3)。コード中からは相対的にaudio/sample.mp3というパスで参照されている。音源はアセットとしてバイナリーに埋め込まれる。
+* 音源のパスは固定(`public/audio/sample.mp3`)。コード中からは相対的に`audio/sample.mp3`というパスで参照されている。音源はアセットとしてバイナリーに埋め込まれる。
+
+注意: Jykellのレンダリングのバグを回避するために二重波括弧は間にスペースが入っている。実際のコードでは省くこと。
 
 ```javascript
 import React, { useRef, useState, useEffect } from 'react';
@@ -84,7 +86,7 @@ const AudioPlayer = () => {
             if (audioRef.current) {
               audioRef.current.volume = e.target.value;
             }
-          }}
+          } }
         />
         <span>Volume</span>
       </div>

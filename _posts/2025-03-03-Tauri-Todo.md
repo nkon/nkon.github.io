@@ -23,6 +23,8 @@ Tauriの練習問題として簡単なToDoアプリを作る。
 * フォームに入力して"Add Task"というボタンを押せば項目が追加される。
 * 項目の横の"Delete"というボタンを押せば項目が消去される。
 
+注意: Jykellのレンダリングのバグを回避するために二重波括弧は間にスペースが入っている。実際のコードでは省くこと。
+
 ```javascript
 import React, { useState } from 'react';
 
@@ -42,7 +44,7 @@ const ToDo = () => {
     };
 
     return (
-        <div style={{ textAlign: 'center', padding: '2rem' }}>
+        <div style={ { textAlign: 'center', padding: '2rem' } }>
             <h1>ToDo App</h1>
             <input
                 type="text"

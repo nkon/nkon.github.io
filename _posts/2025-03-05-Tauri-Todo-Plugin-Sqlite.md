@@ -56,6 +56,8 @@ Tauriの練習問題として簡単なToDoアプリを作る。
 
 SQLプラグインを使う場合は、React側でテーブル定義、SQL生成、結果のハンドリングを行う必要がある。
 
+注意: Jykellのレンダリングのバグを回避するために二重波括弧は間にスペースが入っている。実際のコードでは省くこと。
+
 ```javascript
 import React, { useState, useEffect } from "react";
 import Database from '@tauri-apps/plugin-sql';
@@ -112,7 +114,7 @@ const ToDoSqliteP = () => {
     }
 
     return (
-        <div style={{ textAlign: 'center', padding: '2rem' }}>
+        <div style={ { textAlign: 'center', padding: '2rem' } }>
             <h1>TODO App SQlite Plugin</h1>
             <input
                 type="text"
@@ -125,7 +127,7 @@ const ToDoSqliteP = () => {
                 {todos.map((todo) => (
                     <li key={todo.id}>
                         <span
-                            style={{ textDecoration: todo.completed ? "line-through" : "none", }}
+                            style={ { textDecoration: todo.completed ? "line-through" : "none", } }
                             onClick={() => toggleTodo(todo.id)}>{todo.task}</span> <button onClick={() => removeTodo(todo.id)}>Delete</button>
                     </li>
                 ))}
