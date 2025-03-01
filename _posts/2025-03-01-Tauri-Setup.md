@@ -8,38 +8,38 @@ tags: rust tauri react javascript
 Tauriというアプリケーションフレームワークがある。フロントエンドをReactなどのウェブ技術で、バックエンドをRustで作り、作りやすさと信頼性を兼ね備えることを目標としたものだ。フロントエンドはElectronのようにChromiumを丸ごとパッケージに埋め込むのではなく、OSが持っているWebViewを利用するのでバイナリサイズが小さい。Tauri2.0からはデスクトップアプリ(Windows, macOS, Linuxのマルチプラットフォーム)だけでなくiOS、Androidのモバイルプラットフォームもサポートしている。本記事を含む数個の記事で、セットアップから簡単なアプリの作成までをを解説する。
 
 * セットアップ(本記事)
-* [簡単なアプリ(MP3プレイヤー)](Tauri-Player1.md)
-* [Todo(React版)](Tauri-Todo.md)
-* [Todo(rusqlite版)](Tauri-Todo-Rusqlite.md)
-* [Todo(SQLプラグイン版)](Tauri-Todo-Plugin-Sqlite.md)
+* [簡単なアプリ(MP3プレイヤー)](../Tauri-Player1.md)
+* [Todo(React版)](../Tauri-Todo.md)
+* [Todo(rusqlite版)](../Tauri-Todo-Rusqlite.md)
+* [Todo(SQLプラグイン版)](../Tauri-Todo-Plugin-Sqlite.md)
 
 マルチプラットフォームのアプリフレームワークは、古くからXamarinやGtk, Qtをベースにしたものがあったが、いまいち流行っていない。原因としてはウィジェットがベース環境のUIの雰囲気と合っていなかったり、ベース環境とフレームワークの2つを覚えなければならなかったり。そうこうしているうちに、マルチプラットフォームをサポートするために、Electronベースのアプリ、マテリアルデザインが主流になってきた。しかしElectronは重い。
 
 というわけでTauri。
 
 <!--ts-->
-* [Tauriセットアップ](#tauriセットアップ)
-   * [開発ツール](#開発ツール)
-      * [iOS(Xcode)](#iosxcode)
-      * [Android(Android Studio)](#androidandroid-studio)
-   * [プロジェクトの作成](#プロジェクトの作成)
-      * [作成方法](#作成方法)
-         * [組み合わせメモ(2025-01-12時点)](#組み合わせメモ2025-01-12時点)
-      * [プロジェクトの作成](#プロジェクトの作成-1)
-         * [初期化](#初期化)
-         * [デスクトップアプリ](#デスクトップアプリ)
-            * [開発用ビルド＆実行](#開発用ビルド実行)
-            * [配布用パッケージの作成](#配布用パッケージの作成)
-         * [Androidアプリ](#androidアプリ)
-            * [プロジェクトをAndroid用に初期化する](#プロジェクトをandroid用に初期化する)
-            * [開発用のビルド＆実行](#開発用のビルド実行)
-            * [パッケージのビルド](#パッケージのビルド)
-         * [iOSアプリ](#iosアプリ)
-            * [iOS向けの初期化](#ios向けの初期化)
-            * [開発用のビルド＆実行](#開発用のビルド実行-1)
-            * [配布パッケージの作成](#配布パッケージの作成)
-      * [実行結果](#実行結果)
-   * [Tauri アプリの構造](#tauri-アプリの構造)
+- [Tauriセットアップ](#tauriセットアップ)
+  - [開発ツール](#開発ツール)
+    - [iOS(Xcode)](#iosxcode)
+    - [Android(Android Studio)](#androidandroid-studio)
+  - [プロジェクトの作成](#プロジェクトの作成)
+    - [作成方法](#作成方法)
+      - [組み合わせメモ(2025-01-12時点)](#組み合わせメモ2025-01-12時点)
+    - [プロジェクトの作成](#プロジェクトの作成-1)
+      - [初期化](#初期化)
+      - [デスクトップアプリ](#デスクトップアプリ)
+        - [開発用ビルド＆実行](#開発用ビルド実行)
+        - [配布用パッケージの作成](#配布用パッケージの作成)
+      - [Androidアプリ](#androidアプリ)
+        - [プロジェクトをAndroid用に初期化する](#プロジェクトをandroid用に初期化する)
+        - [開発用のビルド＆実行](#開発用のビルド実行)
+        - [パッケージのビルド](#パッケージのビルド)
+      - [iOSアプリ](#iosアプリ)
+        - [iOS向けの初期化](#ios向けの初期化)
+        - [開発用のビルド＆実行](#開発用のビルド実行-1)
+        - [配布パッケージの作成](#配布パッケージの作成)
+    - [実行結果](#実行結果)
+  - [Tauri アプリの構造](#tauri-アプリの構造)
 
 <!-- Created by https://github.com/ekalinin/github-markdown-toc -->
 <!-- Added by: nkon, at: 2025年 2月17日 月曜日 16時08分49秒 CST -->
@@ -555,7 +555,7 @@ tauri-app/
 
 つぎは、このテンプレートに、自分の好みの機能を追加していく。最初はMP3プレイヤーを追加してみよう。
 
-* [簡単なアプリ(MP3プレイヤー)](Tauri-Player1.md)
-* [Todo(React版)](Tauri-Todo.md)
-* [Todo(rusqlite版)](Tauri-Todo-Rusqlite.md)
-* [Todo(SQLプラグイン版)](Tauri-Todo-Plugin-Sqlite.md)
+* [簡単なアプリ(MP3プレイヤー)](../Tauri-Player1.md)
+* [Todo(React版)](../Tauri-Todo.md)
+* [Todo(rusqlite版)](../Tauri-Todo-Rusqlite.md)
+* [Todo(SQLプラグイン版)](../Tauri-Todo-Plugin-Sqlite.md)

@@ -7,11 +7,11 @@ tags: rust tauri react javascript
 
 Tauriの練習問題として簡単なToDoアプリを作る。
 
-* [セットアップ](Tauri-Setup.md)
-* [簡単なアプリ(MP3プレイヤー)](Tauri-Player1.md)
-* [Todo(React版)](Tauri-Todo.md)
+* [セットアップ](../Tauri-Setup.md)
+* [簡単なアプリ(MP3プレイヤー)](../Tauri-Player1.md)
+* [Todo(React版)](../Tauri-Todo.md)
 * Todo(rusqlite版)(本記事)
-* [Todo(SQLプラグイン版)](Tauri-Todo-Plugin-Sqlite.md)
+* [Todo(SQLプラグイン版)](../Tauri-Todo-Plugin-Sqlite.md)
 
 AIコーディングは、Reactはかなり良い感じに生成してくれるがRust、とくにTauriという新しい分野は、あまりちゃんと生成してくれない。今回はRust部分はほとんど手書きだ。
 
@@ -267,8 +267,8 @@ MP3プレイヤーと同様に、これをApp.jsxの中から呼び出してや�
 
 次はTauriのSQLiteプラグインを使って、モバイルアプリでもデータを保存できるようにする。
 
-* [セットアップ](Tauri-Setup.md)
-* [簡単なアプリ(MP3プレイヤー)](Tauri-Player1.md)
-* [Todo(React版)](Tauri-Todo.md)
+* [セットアップ](../Tauri-Setup.md)
+* [簡単なアプリ(MP3プレイヤー)](../Tauri-Player1.md)
+* [Todo(React版)](../Tauri-Todo.md)
 * Todo(rusqlite版)(本記事)
-* [Todo(SQLプラグイン版)](Tauri-Todo-Plugin-Sqlite.md)
+* [Todo(SQLプラグイン版)](../Tauri-Todo-Plugin-Sqlite.md)

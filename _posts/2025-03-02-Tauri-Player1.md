@@ -7,11 +7,11 @@ tags: rust tauri react javascript
 
 Tauriの練習問題として簡単なMP3プレイヤーを作る。
 
-* [セットアップ](Tauri-Setup.md)
+* [セットアップ](../Tauri-Setup.md)
 * 簡単なアプリ(MP3プレイヤー)(本記事)
-* [Todo(React版)](Tauri-Todo.md)
-* [Todo(rusqlite版)](Tauri-Todo-Rusqlite.md)
-* [Todo(SQLプラグイン版)](Tauri-Todo-Plugin-Sqlite.md)
+* [Todo(React版)](../Tauri-Todo.md)
+* [Todo(rusqlite版)](../Tauri-Todo-Rusqlite.md)
+* [Todo(SQLプラグイン版)](../Tauri-Todo-Plugin-Sqlite.md)
 
 動機としては、今スマホで使っているプレイヤーアプリにあまり満足していない、というもの。ただし、本記事で作成するのは、例題アプリなので実用性はない。
 
@@ -110,8 +110,8 @@ import AudioPlayer from './AudioPlayer';
 
 次はTodoアプリ
 
-* [セットアップ](Tauri-Setup.md)
+* [セットアップ](../Tauri-Setup.md)
 * 簡単なアプリ(MP3プレイヤー)(本記事)
-* [Todo(React版)](Tauri-Todo.md)
-* [Todo(rusqlite版)](Tauri-Todo-Rusqlite.md)
-* [Todo(SQLプラグイン版)](Tauri-Todo-Plugin-Sqlite.md)
+* [Todo(React版)](../Tauri-Todo.md)
+* [Todo(rusqlite版)](../Tauri-Todo-Rusqlite.md)
+* [Todo(SQLプラグイン版)](../Tauri-Todo-Plugin-Sqlite.md)
