@@ -60,12 +60,12 @@ const AudioPlayer = () => {
     return () => {
       if (audioRef.current) {
         audioRef.current.removeEventListener('timeupdate', updateProgress);
-      }
-    };
+      ｝
+    ｝;
   }, []);
 
   return (
-    <div style={{ textAlign: 'center', marginTop: '2rem' }}>
+    <div style=｛｛ textAlign: 'center', marginTop: '2rem' ｝｝>
       <h1>React MP3 Player</h1>
       <audio ref={audioRef} src="/audio/sample.mp3" preload="auto" />
       <div>
@@ -85,8 +85,8 @@ const AudioPlayer = () => {
           onChange={(e) => {
             if (audioRef.current) {
               audioRef.current.volume = e.target.value;
-            }
-          } }
+            ｝
+          ｝｝
         />
         <span>Volume</span>
       </div>
