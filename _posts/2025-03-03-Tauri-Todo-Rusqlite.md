@@ -47,7 +47,7 @@ src-tauri/src/todo-sqlite.rsに、SQLiteのハンドリングをコーディン�
 * `struct Database`のメンバ関数としてテーブル操作のSQLを実装していく。
 * `#[tauri::command]`属性がついたAPI関数を作成する。これらはReact側から呼ばれる。
 
-```
+```rust
 #![cfg_attr(
     all(not(debug_assertions), target_os = "windows"),
     windows_subsystem = "windows"
@@ -186,7 +186,7 @@ src/ToDoSqlite.jsxにReact側のコードを書いていく。
 
 注意: Jykellのレンダリングのバグを回避するために二重波括弧は間にスペースが入っている。実際のコードでは省くこと。
 
-```
+```javascript
 import React, { useState, useEffect } from "react";
 import { invoke } from "@tauri-apps/api/core";
 
