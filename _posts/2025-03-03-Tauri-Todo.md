@@ -25,7 +25,7 @@ Tauriの練習問題として簡単なToDoアプリを作る。
 
 注意: Jykellのレンダリングのバグを回避するために二重波括弧は間にスペースが入っている。実際のコードでは省くこと。
 
-```
+```javascript
 import React, { useState } from 'react';
 
 const ToDo = () => {
