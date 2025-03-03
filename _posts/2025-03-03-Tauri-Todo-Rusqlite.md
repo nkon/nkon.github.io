@@ -35,7 +35,7 @@ RustのSQLiteバインディング。本記事では、次のアーキテクチ�
 src-tauri/Cargo.tomlにrusqliteを追加する
 
 ```
-[dependencies]
+[dependencies]{}
 rusqlite = { version = "0.33", features = ["bundled"] }
 ```
 
@@ -221,7 +221,7 @@ const ToDoSqlite = () => {
     }
 
     return (
-        <div style=｛｛textAlign: 'center', padding: '2rem' ｝｝>
+        <div style={ {textAlign: 'center', padding: '2rem' } }>
             <h1>TODO App</h1>
             <input
                 type="text"
@@ -234,7 +234,7 @@ const ToDoSqlite = () => {
                 {todos.map((todo) => (
                     <li key={todo.id}>
                         <span
-                            style=｛｛textDecoration: todo.completed ? "line-through" : "none", ｝｝
+                            style={ {textDecoration: todo.completed ? "line-through" : "none", } }
                             onClick={() => toggleTodo(todo.id)}>{todo.task}</span> <button onClick={() => removeTodo(todo.id)}>Delete</button>
                     </li>
                 ))}

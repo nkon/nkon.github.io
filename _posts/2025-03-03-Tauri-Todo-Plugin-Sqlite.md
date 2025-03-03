@@ -114,7 +114,7 @@ const ToDoSqliteP = () => {
     }
 
     return (
-        <div style=｛｛textAlign: 'center', padding: '2rem' ｝｝>
+        <div style={ {textAlign: 'center', padding: '2rem' } }>
             <h1>TODO App SQlite Plugin</h1>
             <input
                 type="text"
