@@ -186,7 +186,7 @@ src/ToDoSqlite.jsxにReact側のコードを書いていく。
 
 注意: Jykellのレンダリングのバグを回避するために二重波括弧は間にスペースが入っている。実際のコードでは省くこと。
 
-実際のコードは[https://github.com/nkon/tauri-app]の`rusqlite`ブランチから。`main`ブランチは後述のSQL Plugin版のコード。
+実際のコードは[https://github.com/nkon/tauri-appの`rusqlite`ブランチ](https://github.com/nkon/tauri-app/tree/rusqlite)から。`main`ブランチは後述のSQL Plugin版のコード。
 
 ```javascript
 import React, { useState, useEffect } from "react";

@@ -26,7 +26,7 @@ Tauriの練習問題として簡単なMP3プレイヤーを作る。
 
 注意: Jykellのレンダリングのバグを回避するために二重波括弧は間にスペースが入っている。実際のコードでは省くこと。
 
-実際のコードは[https://github.com/nkon/tauri-app]から。
+実際のコードは[https://github.com/nkon/tauri-app](https://github.com/nkon/tauri-app)から。
 
 ```javascript
 import React, { useRef, useState, useEffect } from 'react';
