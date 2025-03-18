@@ -165,9 +165,9 @@ Xcodeを起動してDevelopment Teamを設定する
 * Profileのダウンロード(Developer -> Profiles -> 選択 -> Download)
 * App IDを環境変数`TAURI_APPLE_DEVELOPMENT_TEAM`にセット
 * Certificateを環境変数`IOS_CERTIFICATE`にセット
-    * base64 -i development.cer | pbcopy
+    * `base64 -i development.cer | pbcopy`
 * Profileを環境変数`IOS_MOBILE_PROVISION`にセット
-    * base64 -i Generic_Provisioning_Profile.mobileprovision| pbcopy
+    * `base64 -i Generic_Provisioning_Profile.mobileprovision | pbcopy`
 * source ~/ios_dev_env
 
 #### iPhoneを開発者モードにする
@@ -277,7 +277,8 @@ RustでのウェブフレームワークはActixがメジャーだがClaudeが�
 スマホアプリも考慮すると、MP3ファイルを格納するディレクトリはOSのルールに従わなければならない。
 
 次のように`app_data_dir()`を使うと適切なディレクトリを取得できる。
-[https://docs.rs/directories/6.0.0/directories/struct.BaseDirs.html#method.data_dir]
+
+[https://docs.rs/directories/6.0.0/directories/struct.BaseDirs.html#method.data_dir](https://docs.rs/directories/6.0.0/directories/struct.BaseDirs.html#method.data_dir)
 
 * macOSの場合は`~/Library/Application\ Support/com.tauri-music-player.app/`
 * Linuxの場合は`~/.local/share/com.tauri-music-player.app/`
@@ -302,7 +303,7 @@ pub fn get_music_dir(app_handle: &AppHandle) -> Result<PathBuf, io::Error> {
 
 そのためにはRustバックエンドはWeb Serverのアドレスを知り、フロントエンド側に通知する必要がある。
 
-Claudeが提示したコードは`local-ip-address`というクレートを用いてローカルアドレスを取得していた。
+Claudeが提示したコードは[`local-ip-address`](https://crates.io/crates/local-ip-address)というクレートを用いてローカルアドレスを取得していた。
 
 ```rust
     // ローカルIPアドレスの取得
@@ -319,7 +320,7 @@ Claudeが提示したコードは`local-ip-address`というクレートを用�
 local-ip-address = {version = "0.6.3", path = "../../local-ip-address" }
 ```
 
-[https://github.com/nkon/local-ip-address/commit/926fe9229c286663825da594593980b3516a50f8]
+[https://github.com/nkon/local-ip-address/commit/926fe9229c286663825da594593980b3516a50f8](https://github.com/nkon/local-ip-address/commit/926fe9229c286663825da594593980b3516a50f8)
 
 ### Warp Web Server
 
@@ -464,7 +465,7 @@ iOSアプリの場合、デフォルトの権限が非常に制限されてい�
 
 Xcodeを開いてInfo.plistを編集する。ソースツリー上では"tauri-music-player/src-tauri/gen/apple/tauri-music-player_iOS/Info.plist"にある。
 
-https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/iPhoneOSKeys.html
+[https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/iPhoneOSKeys.html](https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/iPhoneOSKeys.html)
 
 ```xml
 <key>LSApplicationCategoryType</key>
