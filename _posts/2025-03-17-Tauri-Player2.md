@@ -314,7 +314,7 @@ Claudeが提示したコードは[`local-ip-address`](https://crates.io/crates/l
 
 実はもとの`local-ip-address`のバグ。セルラーのインターフェイスの場合は無視して、ローカルのIPアドレスを取得する意図のコードになっていたが、実際にはAndroidの場合のみ考慮されていてiOSの場合は考慮されていなかった。
 
-`local-ip-address`をローカルにクローンして修正して用いる。上流にはPull Requestを送信しておいた。
+`local-ip-address`をローカルにクローンして修正して用いる。上流にはPull Requestを送信しておいた([マージされた](https://github.com/LeoBorai/local-ip-address/pull/144))。
 
 ```
 local-ip-address = {version = "0.6.3", path = "../../local-ip-address" }
