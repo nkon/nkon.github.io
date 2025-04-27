@@ -42,6 +42,7 @@ RustについてはAIよりも公式環境のほうが現時点では優れて�
   - [MP3ストリーミング](#mp3ストリーミング)
 - [Info.plist](#infoplist)
 - [動作確認](#動作確認)
+- [MediaMetadata を追加して楽曲情報を共有する](#mediametadata-を追加して楽曲情報を共有する)
 - [将来の拡張](#将来の拡張)
 
 <!-- Created by https://github.com/ekalinin/github-markdown-toc -->
@@ -518,6 +519,31 @@ POSTフォームを使ってファイルのアップロード。リストから�
 通常はパソコンなどからファイルをアップロードするが、ファイルの削除はアプリからスマホ内蔵ブラウザを呼び出しても実行できる。原理的にはスマホ内蔵ブラウザからアップすることもできるが、あまり意味がない行為だ。
 
 ![WebUI](../images/Tauri-Player2-web.png)
+
+## MediaMetadata を追加して楽曲情報を共有する
+
+MediaMetadataを追加することによって、ロック画面だったり、BTスピーカーにID3タグから拾ってきた楽曲情報を表示させることができる。また、BTスピーカー側からの早送りなどの操作にも対応できる。
+
+この辺は詳細なコーディングを自動でしなくても、フレームワークでサポートしてくれるからありがたい。
+
+
+```jsx
+  useEffect(() => {
+    if ('mediaSession' in navigator && currentTrack) {
+      navigator.mediaSession.metadata = new MediaMetadata({
+        title: currentTrack.title || currentTrack.file_name,
+        artist: currentTrack.artist || 'Unknown Artist',
+        album: currentTrack.album || 'Unknown Album',
+      });
+      navigator.mediaSession.setActionHandler('play', onPlay);
+      navigator.mediaSession.setActionHandler('pause', onPause);
+      navigator.mediaSession.setActionHandler('previoustrack', onRestart);
+      navigator.mediaSession.setActionHandler('nexttrack', onNext);
+    }
+  }, [currentTrack, onPlay, onPause, onNext, onPrevious]);
+```
+
+![alt text](../images/Tauri-Player2-iphone.png)![alt text](../images/Tauri-Player2-car.png)
 
 
 ## 将来の拡張
