@@ -26,7 +26,7 @@ JavaScript/React部はだいぶ上手に生成できると思うが、Rust部は
 幸い、コンパイラのエラーメッセージ、RustAnalyzerが提供する型情報や補完、docs.rsの文書などを参考に、なんとか動くようにできた。
 RustについてはAIよりも公式環境のほうが現時点では優れている、ということのようだ。
 
-実際のコードは[https://github.com/nkon/tauri-music-player]を参照してください。
+実際のコードは[https://github.com/nkon/tauri-music-player](https://github.com/nkon/tauri-music-player)を参照してください。
 
 <!--ts-->
 - [Claude 3.7 Sonnetによるプロトタイプの生成](#claude-37-sonnetによるプロトタイプの生成)
